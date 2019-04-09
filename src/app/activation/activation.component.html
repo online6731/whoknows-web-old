@@ -1,0 +1,22 @@
+<div id="body">
+<div id="main">	
+	<form>
+		<div class="title">Activation</div>
+		
+		<mat-form-field>
+	    	<input matInput #code type="code" maxlength="5" ><!--(keyup)="codeChanged(code.value)"-->
+				<mat-placeholder>code</mat-placeholder>
+	    </mat-form-field>
+	    
+		<div class="error-field">
+			{{ problem }}
+		</div>
+		
+	    <div class="submit-field">
+			<button mat-button (click)="active(code.value)">
+				active
+			</button>
+		</div>
+	</form>
+</div>
+</div>

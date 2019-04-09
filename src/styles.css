@@ -1,0 +1,64 @@
+@import url( 'https://fonts.googleapis.com/css?family=Roboto:400,700|Material+Icons');
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+/*
+@import url('https://fonts.google.com/specimen/Eczar');
+@import url('https://fonts.google.com/specimen/Bitter');
+@import url('https://fonts.google.com/specimen/Work+Sans');
+@import url('https://fonts.google.com/specimen/Lobster');
+@import url('https://fonts.google.com/specimen/Lalezar');
+@import url('https://fonts.google.com/specimen/Simonetta');
+*/
+
+
+
+@font-face {
+	font-family: 'Baloo Bhaijaan';
+	src: url('assets/fonts/BalooBhaijaan-Regular.ttf');
+}
+
+@font-face {
+	font-family: 'koodak';
+	src: url('assets/fonts/koodak.ttf');
+}
+
+@font-face {
+	font-family: 'gabriola';
+	src: url('assets/fonts/Gabriola.ttf');
+}
+
+* ,div {
+	font-family: 'koodak';
+}
+
+.main{
+    background: rgb(12, 115, 175);
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin:auto;
+    max-width:100%;
+    max-height:100%;
+    overflow:auto;
+    border-radius: 10px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 800px) {
+	.main{
+		width: 400px;
+		height: 500px;
+	}
+}
+
+@media (max-width: 800px) {
+	.main{
+		width: 400px;
+		height: 500px;
+    }
+}

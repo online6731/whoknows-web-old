@@ -1,0 +1,90 @@
+<div id="body">
+	<div id="signup" class="main" style ="overflow : hissen">
+		<form *ngIf="!show">
+			<div class="title" *ngIf="showUserPass">ثبت نام</div>			
+			<mat-form-field *ngIf="showUserPass">
+				<input matInput [(ngModel)]="username1" #username type="text" [ngModelOptions]="{standalone: true}" maxlength="30">
+				<mat-placeholder>نام کاربری</mat-placeholder>
+			</mat-form-field>
+			
+			<mat-form-field *ngIf="showUserPass">
+				<input matInput [(ngModel)]="password1" #password [type]="hide ? 'password' : 'text'" [ngModelOptions]="{standalone: true}" maxlength="30">
+				<mat-placeholder>رمز عبور</mat-placeholder>
+				<mat-icon matSuffix id="passIcon" (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+			</mat-form-field>
+			
+			<mat-form-field *ngIf="showUserPass">
+				<input matInput [(ngModel)]="phoneNumber1" #mobileNumber type="text" [ngModelOptions]="{standalone: true}" maxlength="15">
+				<mat-placeholder>شماره موبایل</mat-placeholder>
+			</mat-form-field>
+		
+
+			<div class="agreement-field" *ngIf="showUserPass">
+				<mat-checkbox [(ngModel)]="agree" name="agreeBox">
+					<label style="color: rgb(11, 66, 99);"><a id="conditionTxt" (click)="showCondition()">شرایط و قوانین </a>را قبول دارم</label>
+				</mat-checkbox>
+			</div>
+			
+			<div class="error-field">
+				{{ problem }}
+			</div>
+			
+			<div *ngIf="showUserPass" class="submit-field">
+				<button mat-button (click)="signup(username.value, password.value, mobileNumber.value)">
+					ثبت نام
+				</button>
+				<button mat-button (click)="guest()">
+					عضویت مهمان
+				</button>
+			</div>
+		</form>
+	</div>
+	<div id="activationDiv" class="main" style ="overflow : hissen" *ngIf="!showUserPass">
+			<div class="title">فعال سازی</div>
+			<mat-form-field>
+				<input matInput #code type="code" maxlength="5" ><!--(keyup)="codeChanged(code.value)"-->
+					<mat-placeholder>کد</mat-placeholder>
+			</mat-form-field>
+			
+			<div class="error-field">
+				{{ problem }}
+			</div>
+			
+			<div class="submit-field">
+				<button mat-button (click)="active(code.value)">
+					فعال سازی
+				</button>
+			</div>
+	</div>
+
+	<div id="conditionDiv" class="main" style ="overflow : hissen" *ngIf="show">
+		<a><mat-icon class="material-icons.md-36" id="closeIcon" [inline]="true" (click)="show = false">close</mat-icon></a>
+		<pre dir="rtl">
+			
+تندنینبدسیندبسینتدبدیسب
+یمئبمسنیئبنئیسمبئمسیئبسیبئپ
+ی ئ سمبسیبئسیمبئیسنمئبسئب
+یئبمئسیبمئیبئیسبمئسین
+یس بئمنسیئبئیسبئیسبئسیمبئ
+نمسئ یمبئیسئبسئیبئیبئسیبئنسینمئبمئسیئب
+ینسئبمسیئبمئیسبئسیئبیسئبس
+منیسئمئبمئیسبسیمئبسئیب
+سنئبمسئیبمئسیبئیسئبمسیئب
+سمئبمسیئبئسیبئیسبیسئبسیئب
+نئیسمئبمیسبئسیئبیسئب
+منسئیبمنئسیئبیسمنبئیسبئیسئبسیمئبسیئب
+نسی ئبمئسیبئیسمئبمیسئبئسیئبس
+		</pre>
+		<div id="conditionCheckBox" class="agreement-field">
+			<mat-checkbox (click)="hideCondition()" class="agreement-field" [(ngModel)]="agree" name="agreeBoxIn">
+			
+			</mat-checkbox>
+
+			<label style="color: rgb(11, 66, 99);"> شرایط و قوانین را قبول دارم</label>
+		</div>
+	</div>
+	
+</div>
+	
+	
+	
