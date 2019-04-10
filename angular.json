@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "guessit-web-v1-m": {
+    "guessit-web": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/guessit-web-v1-m",
+            "outputPath": "dist/guessit-web",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -59,20 +59,20 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "guessit-web-v1-m:build",
-            "port": 4200,
+            "browserTarget": "guessit-web:build",
+            "port": 80,
             "host": "0.0.0.0"
           },
           "configurations": {
             "production": {
-              "browserTarget": "guessit-web-v1-m:build:production"
+              "browserTarget": "guessit-web:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "guessit-web-v1-m:build"
+            "browserTarget": "guessit-web:build"
           }
         },
         "test": {
@@ -116,11 +116,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "guessit-web-v1-m:serve"
+            "devServerTarget": "guessit-web:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "guessit-web-v1-m:serve:production"
+              "devServerTarget": "guessit-web:serve:production"
             }
           }
         },
@@ -136,5 +136,5 @@
       }
     }
   },
-  "defaultProject": "guessit-web-v1-m"
+  "defaultProject": "guessit-web"
 }
