@@ -1,123 +1,98 @@
 <div id="main">
-    
+
     <div class="topMenu">
-        
-        <img src="assets/images/user.png" style="position:absolute; left:5px; top:5px; max-height:50px; max-width:50px; ">
-        
-        <div style="position:absolute; left:60px; top:0px; font-size:20px; height: 50px; width:150px; text-align:left; "> {{ user.username }} </div>
-        
-        <div style="position:absolute; left:60px; top:30px; font-size:15px; height: 50px; width:150px; text-align:left; "> 5 new messages </div>
-        
-        <div style="position:absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto; font-size:35px; height: 50px; width:250px; text-align:center; "> Who Knows? </div>
-        
-        <button mat-button [matMenuTriggerFor]="menu" style="position:absolute; right:5px; top:10px; font-size:25px; text-align:right; "> GoTo </button>
-        
+
+        <img src="assets/images/download.png" style="position:absolute; left:5px; top:5px; max-height:50px; max-width:50px; ">
+
+        <div style="position:absolute; left:60px; top:0px; font-size:20px; height: 50px; width:150px; text-align:left; color:rgb(11, 66, 99); "> {{ "farhad"}} </div>
+
+        <div style="position:absolute; left:60px; top:30px; font-size:15px; height: 50px; width:150px; text-align:left; color:rgb(11, 66, 99);"> 5 new messages </div>
+
+        <div style="position:absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto; font-size:35px; height: 50px; width:250px; text-align:center; color:rgb(11, 66, 99); "> کی میدونه؟ </div>
+
+        <button mat-button [matMenuTriggerFor]="menu" style="position:absolute; right:5px; top:10px; font-size:25px; text-align:right; color:rgb(11, 66, 99);"> گزینه ها </button>
+
         <!--mat-icon style="position:absolute; right:5px; top:5px; font-size:45px; text-align:right; height: 45px; width: 45px; line-height: 45px;"> menu </mat-icon-->
-        <mat-menu #menu="matMenu" yPosition="below">
-            <button mat-menu-item onclick="location.href='/main'"> Games </button>
-            <button mat-menu-item onclick="location.href='/profile'"> Profile </button>
-            <button mat-menu-item> Setting </button>
-            <button mat-menu-item> Friends </button>
+        <mat-menu #menu="matMenu" yPosition="below" >
+            <button mat-menu-item onclick="location.href='/main'"> بازی ها </button>
+            <button mat-menu-item onclick="location.href='/profile'"> صفحه کاربری </button>
+            <button mat-menu-item> تنظیمات </button>
+            <button mat-menu-item> دوستان </button>
         </mat-menu>
     </div>
 
     <mat-list class="gamesList big">
-    
-        <mat-list-item class="listItem" *ngFor="let game of wantedGames" (click)="openGame(game.name)">
-        
+
+        <mat-list-item class="listItem" *ngFor="let game of games" >
+
             <div class="listItemDiv">
-            
+
                 <div style="float: left; " class="i">
-                    
+
                     <mat-icon style="width: 50px; height: 50px; font-size: 50px; line-height: 50px;">
-                        {{
-                            game.rules.type == 'singlePlayer' 	? 'person' 		:
-                            game.rules.type == 'twoPlayer' 	    ? 'group' 		:
-                            game.rules.type == 'multiPlayer' 	? 'group_add' 	:
-                            game.rules.type == 'team'	 		? 'group_add' 	:
-                            ''
-                        }}
+                        person
                     </mat-icon>
-                    
+
                 </div>
-                
+
                 <div style="float: left; " class="inListItem">
                     {{ game.name }}
                 </div>
-                
+
                 <div style="float: right; text-decoration: underline;" class="inListItem">
                     {{ game.timeToStart > 0 ? game.timeToStart + ' seconds' : 'started' }}
                 </div>
-                
-                <div style="float: right;" class="inListItem">
-                    {{ game.rules.rounds.tags }}
-                </div>
-                
-                <div style="float: right;" class="inListItem">
-                    {{ game.questions.length }}
-                </div>
+
+
+
 
                 <div style="float: right;" class="inListItem">
                     [duration]
                 </div>
 
-                <div style="float: right;" class="inListItem">
-                    [prize]
-                </div>
-            
+
                 <div style="float: right;" class="inListItem">
                     [level]
                 </div>
-                
-            
+
+
             </div>
 
         </mat-list-item>
-    
+
     </mat-list>
 
     <mat-list class="gamesList small">
-    
-        <mat-list-item class="listItem" *ngFor="let game of wantedGames" (click)="openGame(game.name)">
-        
+
+        <mat-list-item class="listItem" *ngFor="let game of games">
+
             <div class="listItemDiv">
-            
+
                 <div style="float: left; " class="i">
-                    
+
                     <mat-icon style="width: 50px; height: 50px; font-size: 50px; line-height: 50px;">
-                        {{
-                            game.rules.type == 'singlePlayer' 	? 'person' 		:
-                            game.rules.type == 'twoPlayer' 	    ? 'group' 		:
-                            game.rules.type == 'multiPlayer' 	? 'group_add' 	:
-                            game.rules.type == 'team'	 		? 'group_add' 	:
-                            ''
-                        }}
+                      person
                     </mat-icon>
-                    
+
                 </div>
-                
+
                 <div style="float: left; " class="inListItem">
                     {{ game.name }}
                 </div>
-                
+
                 <div style="float: right; text-decoration: underline;" class="inListItem">
                     {{ game.timeToStart > 0 ? game.timeToStart + ' seconds' : 'started' }}
                 </div>
-                
-                <div style="float: right;" class="inListItem">
-                    {{ game.rules.rounds.tags }}
-                </div>
-                
-                <div style="float: right;" class="inListItem">
-                    {{ game.questions.length }}
-                </div>
 
-                
-            
+
+
+
+
+
             </div>
 
         </mat-list-item>
-    
+
     </mat-list>
 
 </div>

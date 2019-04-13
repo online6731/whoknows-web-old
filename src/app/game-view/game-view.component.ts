@@ -1,6 +1,6 @@
 import { Component,
          OnInit,
-         Injectable }  
+         Injectable }
     from '@angular/core';
 
 import { HttpClient }
@@ -24,11 +24,11 @@ import { viewGameResponse }
 import { Game }
     from '../game';
 
-import { GameService } 
+import { GameService }
     from '../game.service';
 
 import { formatDate } from '@angular/common';
-    
+
 
 @Component({
   selector: 'app-game-view',
@@ -39,7 +39,7 @@ import { formatDate } from '@angular/common';
 
 @Injectable()
 export class GameViewComponent implements OnInit {
-    
+
     game: Game;
     isInGame = false;
     teamNames = [];
@@ -59,25 +59,25 @@ export class GameViewComponent implements OnInit {
       localStorage.setItem("isInGame", "false");
   }
 
-
+/*
   viewGame(gameID: string): void{
       this.GameService.viewGame(gameID).subscribe(
         (viewGameResponse: viewGameResponse) => {
             if (viewGameResponse.ok){
-                
+
                 this.game = viewGameResponse.game;
                 this.date = formatDate(this.game.rules.start.date, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0430');
 
                 viewGameResponse.game.teams.forEach(function(team){
-                    
+
                     if (team.team == localStorage.getItem("username")){
                         localStorage.setItem("isInGame", "true");
                         //this.isInGame = true;
                         console.log('you are in game');
                     }
-                    
+
                     team.members.forEach(function(player){
-                        
+
                     });
                 });
 
@@ -99,9 +99,9 @@ export class GameViewComponent implements OnInit {
     this.GameService.joinGame(gameID, localStorage.getItem("username")).subscribe(
         (joinGameResponse: joinGameResponse) => {
             if (joinGameResponse.ok){
-                
+
                 this.viewGame(this.route.snapshot.params.gameID);
-                
+
                 //this.router.navigate([`/game/${gameID}/team/${localStorage.getItem("username")}/play`]);
             } else {
 
@@ -119,5 +119,6 @@ export class GameViewComponent implements OnInit {
   }
 
 
-
+*/
 }
+

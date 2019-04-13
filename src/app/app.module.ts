@@ -1,3 +1,4 @@
+import { MainComponent } from './main/main.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,10 +16,14 @@ import {InterestsComponent} from './interests/interests.component';
 
 
 
+
 const appRoutes: Routes = [
+    //{ path: '/',             component: SignupComponent,       canActivate: [] },
     { path: 'login',              component: LoginComponent,        canActivate: [] },
     { path: 'signup',             component: SignupComponent,       canActivate: [] },
-    { path: 'interests',             component: InterestsComponent,       canActivate: [] }
+    { path: 'interests',             component: InterestsComponent,       canActivate: [] },
+    { path: 'main',             component: MainComponent,       canActivate: [] }
+
 ];
 
 
@@ -70,6 +75,7 @@ import { from } from 'rxjs';
     LoginComponent,
     SignupComponent,
     InterestsComponent,
+    MainComponent,
   ],
   imports: [
 	RouterModule.forRoot(appRoutes, { enableTracing: true } /* <-- debugging purposes only */ ),

@@ -35,16 +35,46 @@ export class MainComponent implements OnInit {
         private http:       HttpClient,
         public  router:     Router,
         private MeService:  MeService
-    ) { }
+    ) {
+       this.games = [{name: 'football',duration		: 1000,  timeToStart 		: 800},{name: 'football',duration		: 1000,  timeToStart 		: 800},
+       {name: 'football',duration		: 1000,  timeToStart 		: 800},
+       {name: 'football',duration		: 1000,  timeToStart 		: 800},
+       {name: 'football',duration		: 1000,  timeToStart 		: 800},
+       {name: 'football',duration		: 1000,  timeToStart 		: 800},
+       {name: 'football',duration		: 1000,  timeToStart 		: 800},
+       {name: 'football',duration		: 1000,  timeToStart 		: 800},
+       {name: 'football',duration		: 1000,  timeToStart 		: 800},
+       {name: 'football',duration		: 1000,  timeToStart 		: 800},
+       {name: 'football',duration		: 1000,  timeToStart 		: 800},
+       {name: 'football',duration		: 1000,  timeToStart 		: 800},
+       {name: 'football',duration		: 1000,  timeToStart 		: 800},
+       {name: 'football',duration		: 1000,  timeToStart 		: 800},
+       {name: 'football',duration		: 1000,  timeToStart 		: 800},
+       {name: 'football',duration		: 1000,  timeToStart 		: 800},
+       {name: 'football',duration		: 1000,  timeToStart 		: 800},
+       {name: 'football',duration		: 1000,  timeToStart 		: 800},
+       {name: 'football',duration		: 1000,  timeToStart 		: 800},
+       {name: 'football',duration		: 1000,  timeToStart 		: 800},
+       {name: 'football',duration		: 1000,  timeToStart 		: 800},
+       {name: 'football',duration		: 1000,  timeToStart 		: 800},
+       
 
-    ngOnInit() {
-        
-        this.getProfile();
-        this.getListOfGames();
-        this.timeToStartTimer();
+      ];
+
+
+
+
+
     }
 
-    getListOfGames(): void {
+    ngOnInit() {
+
+        //this.getProfile();
+        //this.getListOfGames();
+        //this.timeToStartTimer();
+    }
+
+    /*getListOfGames(): void {
         this.http.post<GameListResponse>(`${localStorage.getItem('server')}/game/list`, {}).subscribe(data => {
             if (data.ok) {
                 this.games = data.games;
@@ -121,6 +151,6 @@ export class MainComponent implements OnInit {
         }
         setTimeout(this.timeToStartTimer, 1000 * 1);
     }
-
+*/
 }
 

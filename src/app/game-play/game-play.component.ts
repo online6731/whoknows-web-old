@@ -1,6 +1,6 @@
 import { Component,
          OnInit,
-         Injectable }  
+         Injectable }
     from '@angular/core';
 
 import { HttpClient }
@@ -36,7 +36,7 @@ import { MatGridListModule,
         }
     from '@angular/material';
 
-import { GameService } 
+import { GameService }
     from '../game.service';
 
 
@@ -64,24 +64,24 @@ export class GamePlayComponent implements OnInit {
 
 
     ngOnInit() {
-        this.viewGame(this.route.snapshot.params.gameID);
+        //this.viewGame(this.route.snapshot.params.gameID);
     }
 
-    viewGame(gameID: string): void{
+   /* viewGame(gameID: string): void{
           this.GameService.viewGame(gameID).subscribe(
             (viewGameResponse: viewGameResponse) => {
                 if (viewGameResponse.ok){
-                    
+
                     this.game = viewGameResponse.game;
-                    
+
                     this.loadNextQuestion();
 
                     viewGameResponse.game.teams.forEach(function(team){
                         team.members.forEach(function(player){
-                            
+
                         });
                     });
-                    
+
                 }
                 else {
 
@@ -116,6 +116,6 @@ export class GamePlayComponent implements OnInit {
     }
 
 
-
+*/
 }
 
