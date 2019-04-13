@@ -37,7 +37,7 @@ export class SignupComponent implements OnInit {
     password1 = "";
     phoneNumber1 = "";
     problem = '';
-    showUserPass = false;
+    showUserPass = true;
     show = false;
     agree = false;
     constructor(private http: HttpClient, public  router: Router) { }
@@ -45,7 +45,7 @@ export class SignupComponent implements OnInit {
     ngOnInit() { }
 
     showCondition(){
-        this.show = true;    
+        this.show = true;
     }
 
     hideCondition(){
@@ -83,7 +83,7 @@ export class SignupComponent implements OnInit {
                 } else {
                     this.router.navigate(['/main']);
                 }
-                
+
             } else {
                 this.problem = data.problem;
             }

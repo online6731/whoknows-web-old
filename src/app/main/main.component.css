@@ -1,4 +1,4 @@
-#main{
+.main{
     position:absolute;
     left:0;
     right:0;
@@ -8,7 +8,7 @@
     max-width:100%;
     max-height:100%;
     overflow:auto;
-    border: 1px solid rgb(11, 66, 99);
+    /*border:1px solid rgb(11, 66, 99);*/
     border-radius: 0;
     background: rgb(11, 66, 99);
     width: 100vw;
@@ -20,7 +20,7 @@
     padding-top: 90px;
 }
 
-.topMenu {
+.topMenu  {
     position: fixed;
     top: 0;
     left: 0;
@@ -82,8 +82,15 @@
         display: block;
         overflow: scroll;
     }
+    .topMenu.big{
+      display: block;
+
+    }
     .gamesList.small {
         display: none;
+    }
+    .topMenu.small{
+      display: none;
     }
 }
 
@@ -92,7 +99,20 @@
         display: none;
         overflow: scroll;
     }
+    .topMenu.big{
+      display: none;
+
+    }
     .gamesList.small {
         display: block;
     }
+    .topMenu.small{
+      display: block;
+    }
 }
+#list-icon{
+  transform: scale(2);
+  margin-top : -20px;
+  
+}
+

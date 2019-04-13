@@ -55,7 +55,7 @@ export class GameViewComponent implements OnInit {
 
 
   ngOnInit() {
-      this.viewGame(this.route.snapshot.params.gameID);
+      //this.viewGame(this.route.snapshot.params.gameID);
       localStorage.setItem("isInGame", "false");
   }
 
