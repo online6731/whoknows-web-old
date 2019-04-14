@@ -86,10 +86,10 @@ import { MatButtonModule,
     HttpClientModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter: function tokenGetter() {
+        tokenGetter: function () {
           return localStorage.getItem('access_token');
         },
-        whitelistedDomains: ['whoknows.ir'],
+        whitelistedDomains: ['whoknows.ir:30000'],
         blacklistedRoutes: ['whoknows.ir/login', 'whoknows.ir/signup/']
       }
     }), 
