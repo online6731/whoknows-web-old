@@ -21,12 +21,6 @@ import { ProfileComponent } from './profile/profile.component';
 
 
 
-
-export function tokenGetter() {
-  return localStorage.getItem('access_token');
-}
-
-
 const appRoutes: Routes = [
     //{ path: '/',             component: SignupComponent,       canActivate: [] },
     { path: 'login',              component: LoginComponent,        canActivate: [] },
@@ -92,7 +86,9 @@ import { MatButtonModule,
     HttpClientModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter: tokenGetter,
+        tokenGetter: function tokenGetter() {
+          return localStorage.getItem('access_token');
+        },
         whitelistedDomains: ['whoknows.ir'],
         blacklistedRoutes: ['whoknows.ir/login', 'whoknows.ir/signup/']
       }
