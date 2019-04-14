@@ -13,6 +13,7 @@ import {CdkTreeModule} from '@angular/cdk/tree';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import {InterestsComponent} from './interests/interests.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -22,7 +23,8 @@ const appRoutes: Routes = [
     { path: 'login',              component: LoginComponent,        canActivate: [] },
     { path: 'signup',             component: SignupComponent,       canActivate: [] },
     { path: 'interests',             component: InterestsComponent,       canActivate: [] },
-    { path: 'main',             component: MainComponent,       canActivate: [] }
+    { path: 'main',             component: MainComponent,       canActivate: [] },
+    { path: 'profile',             component: ProfileComponent,       canActivate: [] }
 
 ];
 
@@ -76,6 +78,7 @@ import { from } from 'rxjs';
     SignupComponent,
     InterestsComponent,
     MainComponent,
+    ProfileComponent,
   ],
   imports: [
 	RouterModule.forRoot(appRoutes, { enableTracing: true } /* <-- debugging purposes only */ ),

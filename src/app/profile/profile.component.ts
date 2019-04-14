@@ -17,10 +17,8 @@ export class ProfileComponent implements OnInit {
 
     arrayColors = [];
     navLinks = [
-        { label: 'friends'		, path: '/friends'},
-        { label: 'play'			, path: '/main'},
-        { label: 'profile'		, path: '/profile'},
-        { label: 'shop'			, path: '/shop'}
+        { label: 'صفحه اصلی'			, path: '/main'},
+        { label: 'فروشگاه'			, path: '/shop'}
     ];
 
     user: User;
