@@ -1,4 +1,4 @@
-export class ActivationResponse {
+export class ResendCodeResponse {
     ok      : boolean;
     problem : string;
 }

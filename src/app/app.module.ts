@@ -13,7 +13,7 @@ import {CdkTreeModule} from '@angular/cdk/tree';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import {InterestsComponent} from './interests/interests.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ActivationComponent } from './activation/activation.component';
 
 
 
@@ -24,6 +24,7 @@ const appRoutes: Routes = [
     { path: 'signup',             component: SignupComponent,       canActivate: [] },
     { path: 'interests',             component: InterestsComponent,       canActivate: [] },
     { path: 'main',             component: MainComponent,       canActivate: [] },
+    { path: 'activation',             component: ActivationComponent,       canActivate: [] },
     { path: 'profile',             component: ProfileComponent,       canActivate: [] }
 
 ];
@@ -70,6 +71,7 @@ import { MatButtonModule,
 import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
 import { from } from 'rxjs';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +80,7 @@ import { from } from 'rxjs';
     SignupComponent,
     InterestsComponent,
     MainComponent,
+    ActivationComponent,
     ProfileComponent,
   ],
   imports: [
