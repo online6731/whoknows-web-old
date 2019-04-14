@@ -6,10 +6,10 @@
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'guessit-web-v1-m';
+  title = 'guessit-web';
 
   ngOnInit() {
-    localStorage.setItem("server", "http:/0.0.0.0:3000");
+    localStorage.setItem("server", "http://whoknows.ir:30000");
     
   }
 }

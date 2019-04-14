@@ -1,7 +1,9 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { activationResponse } from '../activationResponse';
+import { MeService } from '../me.service';
+import { ActivationResponse } from '../activationResponse';
+import { ResendCodeResponse } from '../resendCodeResponse';
 
 @Component({
     selector: 'app-activation',
@@ -14,19 +16,32 @@ export class ActivationComponent implements OnInit {
 
     problem = '';
 
-    constructor(private http: HttpClient, public router: Router) { }
+    constructor(private http: HttpClient,
+                public router: Router,
+                private MeService: MeService) { }
 
     ngOnInit() { }
 
-    active(code): void {
-        this.http.post<activationResponse>(
-            `${localStorage.getItem('server')}/signup/activation/user/${localStorage.getItem('username')}/code/${code}`, {})
-            .subscribe(data => {
-                if (data.ok) {
-                    this.router.navigate(['/main']);
-                } else {
-                    this.problem = data.problem;
-                }
+    active(activationCode: string): void {
+        this.MeService.active(activationCode).subscribe((body) => {
+          if (body.ok) {
+              this.router.navigate(['/interests']);
+          }
+          else {
+              this.problem = body.problem;
+          }
         });
-    }
+        
+      }
+      resendCode(): void {
+        this.MeService.resendCode().subscribe((body) => {
+          if (body.ok) {
+              this.router.navigate(['/activation']);
+          }
+          else {
+              this.problem = body.problem;
+          }
+        });
+        
+      }
 }

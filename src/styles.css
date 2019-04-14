@@ -31,6 +31,10 @@
 	font-family: 'koodak';
 }
 
+.error-field{
+    color: red;
+}
+
 .main{
     background: rgb(12, 115, 175);
     position:absolute;
