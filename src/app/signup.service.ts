@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient }	from '@angular/common/http';
 import { Observable }	from 'rxjs';
 import { SignupGuestResponse } from './signupGuestResponse'
-import { SignupMemberResponse } from './signupMemberResponse'
+import { SignupMemberResponse } from './SignupMemberResponse'
 
 @Injectable({
   providedIn: 'root'
