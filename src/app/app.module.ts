@@ -90,7 +90,9 @@ import { MatButtonModule,
           return localStorage.getItem('access_token');
         },
         whitelistedDomains: ['whoknows.ir:30000'],
-        blacklistedRoutes: ['whoknows.ir/login', 'whoknows.ir/signup/']
+        blacklistedRoutes: ['whoknows.ir/login', 'whoknows.ir/signup/'],
+        headerName: 'authorization',
+        authScheme: ''
       }
     }), 
 	RouterModule.forRoot(appRoutes, { enableTracing: true } /* <-- debugging purposes only */ ),
