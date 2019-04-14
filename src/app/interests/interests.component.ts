@@ -1,21 +1,16 @@
 import { Component,
 				 OnInit,
-				 Injectable }
-  from '@angular/core';
+				 Injectable } from '@angular/core';
 
-import { HttpClient }
-  from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 import { RouterModule,
-         Router 
-} from '@angular/router';
-
-import { User 
-} from '../user';
-
+         Router } from '@angular/router';
+         
 import { MatGridListModule ,
-				 MatButtonToggleModule 
-} from '@angular/material';
+         MatButtonToggleModule } from '@angular/material';
+
+import { MeService } from '../_services/me.service';
 
 import {
   trigger,
@@ -23,11 +18,9 @@ import {
   style,
   animate,
   transition,
-  keyframes
-} from '@angular/animations';
+  keyframes } from '@angular/animations';
 
-import { TagService } 
-  from '../tag.service';
+import { TagService } from '../_services/tag.service';
 
 @Component({
   selector: 'app-interests',
@@ -80,20 +73,21 @@ export class InterestsComponent implements OnInit {
   constructor(
 		private   http              : HttpClient,
 		public    router            : Router,
-		private   TagService   : TagService
+    private   TagService   : TagService,
+    private MeService:  MeService
   ) { }
 
 
   ngOnInit() {
-    this.searchTag();
+    this.findTag();
   }
 
-  searchTag(): void{
-    this.TagService.search().subscribe(
-      (searchResponse) => {
-        if (searchResponse.ok){
+  findTag(): void{
+    this.TagService.find().subscribe(
+      (body) => {
+        if (body.ok){
         
-       		this.tags = searchResponse.tags;
+       		this.tags = body.tags;
         
         }
         else {
@@ -104,9 +98,7 @@ export class InterestsComponent implements OnInit {
   }
   
   setInterests(): void {
-  	this.http.post<EditUserResponse>(`${localStorage.getItem("server")}/me/edit`,
-	 	{ interests: this.interests })
-		.subscribe(data => {
+    this.MeService.setInterests(this.interests).subscribe(data => {
 			console.log(data);
       if (data.ok){
         this.router.navigate(['/main']);
@@ -144,11 +136,4 @@ export class InterestsComponent implements OnInit {
   	
   }
 
-  
-
-}
-
-interface EditUserResponse {
-	ok			: string;
-	response 	: string;
 }

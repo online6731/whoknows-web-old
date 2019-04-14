@@ -8,25 +8,23 @@ import { Observable, of }
 	from 'rxjs';
 
 import { User }
-	from './user';
+	from '../_models/user';
 
 import { Question }
-	from './question';
+	from '../_models/question';
 
 import { Game }
-	from './game';
+	from '../_models/game';
 	
 import { sendAnswerResponse }
-	from './sendAnswerResponse';
+	from '../_models/sendAnswerResponse';
 
 import { viewGameResponse }
-	from './viewGameResponse';
+	from '../_models/viewGameResponse';
 
-import { joinGameResponse }
-	from './joinGameResponse';
+import { joinGameResponse } from '../_models/joinGameResponse';
 
-import { gameNewResponse }
-	from './gameNewResponse';
+import { gameNewResponse } from '../_models/gameNewResponse';
 
 @Injectable({
   providedIn: 'root'

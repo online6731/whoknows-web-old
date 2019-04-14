@@ -19,7 +19,7 @@ import { ActivationComponent } from './activation/activation.component';
 
 
 const appRoutes: Routes = [
-    //{ path: '/',             component: SignupComponent,       canActivate: [] },
+    { path: '',             component: SignupComponent,       canActivate: [] },
     { path: 'login',              component: LoginComponent,        canActivate: [] },
     { path: 'signup',             component: SignupComponent,       canActivate: [] },
     { path: 'interests',             component: InterestsComponent,       canActivate: [] },

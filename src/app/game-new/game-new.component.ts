@@ -17,19 +17,16 @@ import { RouterModule,
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 
 import { User }
-	from '../user';
+	from '../_models/user';
 
-import { Question }
-	from '../question';
+import { Question } from '../_models/question';
 
-import { Game }
-	from '../game';
 
 import { sendAnswerResponse }
-	from '../sendAnswerResponse';
+	from '../_models/sendAnswerResponse';
 
 import { viewGameResponse }
-	from '../viewGameResponse';
+	from '../_models/viewGameResponse';
 
 import {FormControl} from '@angular/forms';
 
@@ -51,7 +48,7 @@ import { MatGridListModule,
 
 
 import { GameService } 
-	from '../game.service';
+	from '../_services/game.service';
 
 import {Observable} from 'rxjs';
 

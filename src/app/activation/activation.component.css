@@ -14,9 +14,10 @@
     background: rgb(11, 66, 99);
 }
 
-#main{
+.main{
     background: rgb(12, 115, 175);
     opacity: 1;
+    height: 570px;
 }
 
 .title{

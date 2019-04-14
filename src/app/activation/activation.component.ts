@@ -1,9 +1,9 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { MeService } from '../me.service';
-import { ActivationResponse } from '../activationResponse';
-import { ResendCodeResponse } from '../resendCodeResponse';
+import { MeService } from '../_services/me.service';
+import { ActivationResponse } from '../_models/activationResponse';
+import { ResendCodeResponse } from '../_models/resendCodeResponse';
 
 @Component({
     selector: 'app-activation',

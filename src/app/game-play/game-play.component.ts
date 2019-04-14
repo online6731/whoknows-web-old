@@ -13,19 +13,19 @@ import { RouterModule,
     from '@angular/router';
 
 import { User }
-    from '../user';
+    from '../_models/user';
 
 import { Question }
-    from '../question';
+    from '../_models/question';
 
 import { Game }
-    from '../game';
+    from '../_models/game';
 
 import { sendAnswerResponse }
-    from '../sendAnswerResponse';
+    from '../_models/sendAnswerResponse';
 
 import { viewGameResponse }
-    from '../viewGameResponse';
+    from '../_models/viewGameResponse';
 
 import { MatGridListModule,
          MatButtonToggleModule,
@@ -37,7 +37,7 @@ import { MatGridListModule,
     from '@angular/material';
 
 import { GameService }
-    from '../game.service';
+    from '../_services/game.service';
 
 
 @Component({

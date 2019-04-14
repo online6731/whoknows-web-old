@@ -1,11 +1,11 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { User } from '../user';
-import { Game } from '../game';
-import { GameListResponse } from '../GameListResponse';
-import { GameJoinResponse } from '../GameJoinResponse';
-import { MeService } from '../me.service';
+import { User } from '../_models/user';
+import { Game } from '../_models/game';
+import { GameListResponse } from '../_models/gameListResponse';
+import { GameJoinResponse } from '../_models/gameJoinResponse';
+import { MeService } from '../_services/me.service';
 
 @Component({
     selector:     'app-main',

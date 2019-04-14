@@ -1,10 +1,10 @@
 import { Component, OnInit, Injectable, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { MeService } from '../me.service';
+import { MeService } from '../_services/me.service';
 import { Router } from '@angular/router';
-import { LoginResponse } from '../LoginResponse';
-import { SignupMemberResponse } from '../SignupMemberResponse';
-import { SignupGuestResponse } from '../SignupGuestResponse';
+import { LoginResponse } from '../_models/LoginResponse';
+import { SignupMemberResponse } from '../_models/SignupMemberResponse';
+import { SignupGuestResponse } from '../_models/signupGuestResponse';
 import { MatIconModule } from '@angular/material/icon';
 import {
     trigger,
@@ -15,7 +15,7 @@ import {
     keyframes
   } from '@angular/animations';
 
-  import { SignupService } from '../signup.service';
+  import { SignupService } from '../_services/signup.service';
 
 @Component({
   selector: 'app-signup',

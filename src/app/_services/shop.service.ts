@@ -8,10 +8,9 @@ import { Observable, of }
 	from 'rxjs';
 
 import { buyResponse }
-	from './buyResponse';
+	from '../_models/buyResponse';
 	
-import { shopSearchResponse }
-	from './shopSearchResponse';
+import { shopSearchResponse } from '../_models/shopSearchResponse';
 
 @Injectable({
   providedIn: 'root'

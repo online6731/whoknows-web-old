@@ -2,8 +2,9 @@ import { Component, OnInit , Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
-import { LoginResponse } from '../LoginResponse';
+import { LoginResponse } from '../_models/LoginResponse';
 import { Router } from '@angular/router';
+import { LoginService } from '../_services/login.service';
 
 @Component({
 	selector: 'app-login',
@@ -18,23 +19,23 @@ export class LoginComponent implements OnInit {
 
 		constructor(
 				private http: HttpClient,
-				public 	router: Router
+				public 	router: Router,
+				private LoginService: LoginService
 		) {}
 
 		ngOnInit() { }
 
 		login(username: string, password: string): void {
 			this.problem="";
-			this.http.post<LoginResponse>(`${localStorage.getItem('server')}/login`,
-				{ username: username, password: password }).subscribe(data => {
+			this.LoginService.login(username, password).subscribe((body) => {
 
-								if (data.ok) {
-										localStorage.setItem('access_token', data.token);
+								if (body.ok) {
+										localStorage.setItem('access_token', body.token);
 										localStorage.setItem('username', username);
 										this.router.navigate(['/main']);
 
 								} else {
-										this.problem = data.problem;
+										this.problem = body.problem;
 								}
 
 						});

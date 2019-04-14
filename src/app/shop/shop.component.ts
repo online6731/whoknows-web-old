@@ -13,7 +13,7 @@ import { Good }
 	from '../good';
 
 import { User } 
-	from '../user';
+	from '../_models/user';
 
 
 import { MatGridListModule,
@@ -26,11 +26,11 @@ import { MatGridListModule,
 
 
 import { ShopService } 
-  from '../shop.service';
+  from '../_services/shop.service';
 
 
 import { MeService } 
-	from '../me.service';
+	from '../_services/me.service';
 
 @Component({
   selector: 'app-shop',
