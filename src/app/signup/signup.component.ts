@@ -4,7 +4,7 @@ import { MeService } from '../me.service';
 import { Router } from '@angular/router';
 import { LoginResponse } from '../LoginResponse';
 import { SignupMemberResponse } from '../SignupMemberResponse';
-import { SignupGuestResponse } from '../SignupGuestResponse';
+import { SignupGuestResponse } from '../signupGuestResponse';
 import { MatIconModule } from '@angular/material/icon';
 import {
     trigger,
