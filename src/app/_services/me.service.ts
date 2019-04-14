@@ -5,7 +5,6 @@ import { ActivationResponse } from '../_models/activationResponse';
 import { ResendCodeResponse } from '../_models/resendCodeResponse';
 import { ProfileResponse } from '../_models/profileResponse';
 import { EditUserResponse } from '../_models/editUserResponse';
-import { InterestsComponent } from '../interests/interests.component'
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -17,8 +16,7 @@ export class MeService {
 
 	problem = '';
 	  constructor(private http : HttpClient,
-								public router: Router,
-								private InterestsComponent:  InterestsComponent
+								public router: Router
 							 ) {}
 
 
