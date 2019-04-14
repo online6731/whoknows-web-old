@@ -2,15 +2,9 @@ import { Component, OnInit, Injectable, Output, EventEmitter } from '@angular/co
 import { HttpClient } from '@angular/common/http';
 import { MeService } from '../_services/me.service';
 import { Router } from '@angular/router';
-<<<<<<< HEAD
 import { LoginResponse } from '../_models/LoginResponse';
 import { SignupMemberResponse } from '../_models/SignupMemberResponse';
 import { SignupGuestResponse } from '../_models/signupGuestResponse';
-=======
-import { LoginResponse } from '../LoginResponse';
-import { SignupMemberResponse } from '../SignupMemberResponse';
-import { SignupGuestResponse } from '../signupGuestResponse';
->>>>>>> 8a2ec8a4f142695a9a158e9c7ad636651d34e186
 import { MatIconModule } from '@angular/material/icon';
 import {
     trigger,

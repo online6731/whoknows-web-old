@@ -14,7 +14,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import {InterestsComponent} from './interests/interests.component';
 import { ActivationComponent } from './activation/activation.component';
-import { JwtModule } from '@auth0/angular-jwt';
+import { JwtModule } from '@auth/angular-jwt';
 import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
