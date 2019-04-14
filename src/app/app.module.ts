@@ -14,7 +14,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import {InterestsComponent} from './interests/interests.component';
 import { ActivationComponent } from './activation/activation.component';
-
+import { JwtModule } from '@auth0/angular-jwt';
+import { AppComponent } from './app.component';
+import { SignupComponent } from './signup/signup.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -68,10 +71,6 @@ import { MatButtonModule,
 		 MatTooltipModule,
 		 MatTreeModule,
 } from '@angular/material';
-import { AppComponent } from './app.component';
-import { SignupComponent } from './signup/signup.component';
-import { from } from 'rxjs';
-import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +83,18 @@ import { ProfileComponent } from './profile/profile.component';
     ProfileComponent,
   ],
   imports: [
+    HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: function () {
+          return localStorage.getItem('access_token');
+        },
+        whitelistedDomains: ['whoknows.ir:30000'],
+        blacklistedRoutes: ['whoknows.ir/login', 'whoknows.ir/signup/'],
+        headerName: 'authorization',
+        authScheme: ''
+      }
+    }), 
 	RouterModule.forRoot(appRoutes, { enableTracing: true } /* <-- debugging purposes only */ ),
     BrowserModule,
 	BrowserAnimationsModule,
