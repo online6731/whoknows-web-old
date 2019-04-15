@@ -1,4 +1,4 @@
-import { Good } from '../good.js';
+import { Good } from './good.js';
 
 
 export class shopSearchResponse {

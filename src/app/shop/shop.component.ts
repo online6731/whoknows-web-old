@@ -10,7 +10,7 @@ import { RouterModule, Router }
 	from '@angular/router';
 
 import { Good }
-	from '../good';
+	from '../_models/good';
 
 import { User } 
 	from '../_models/user';
