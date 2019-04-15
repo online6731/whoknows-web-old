@@ -90,7 +90,7 @@ import { MatButtonModule,
           return localStorage.getItem('access_token');
         },
         whitelistedDomains: ['whoknows.ir:30000'],
-        blacklistedRoutes: ['whoknows.ir/login', 'whoknows.ir/signup/'],
+        blacklistedRoutes: ['whoknows.ir:30000/login/', 'whoknows.ir:30000/signup/'],
         headerName: 'authorization',
         authScheme: ''
       }
