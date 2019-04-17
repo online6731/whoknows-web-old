@@ -122,10 +122,29 @@ export class InterestsComponent implements OnInit {
     );
   }
   
-  setInterests(): void {
-    this.MeService.setInterests(this.interests).subscribe(data => {
-			console.log(data);
-      if (data.ok){
+  clicked(_title) :boolean{
+    console.log("clicked" , _title);
+    for (var tag of this.tags){
+      if(tag.title == _title){
+        this.selectedTag = tag;
+        break;
+      }
+    }
+  	if (this.interests.map(interest => interest.title).includes(_title)){
+      console.log("false");
+      return true;
+	  }
+
+    else {
+      console.log("true");
+      return false;
+    }
+}
+
+  editProfile(): void {
+    this.MeService.editProfile({interests:this.interests.map(interest => interest._id)}).subscribe(body => {
+			console.log(body);
+      if (body.ok){
         this.router.navigate(['/main']);
       }
       else {
@@ -136,50 +155,39 @@ export class InterestsComponent implements OnInit {
   }
 
 
-  removeChip(event){
-    for(var tag of this.tags){
-      if(tag.title == event.target.id){
-        event.target.style['background'] = '#b7ffb7';
-        
-        const index: number = this.interests.map(interest => interest.title).indexOf(event.target.name);
-        if (index !== -1) {
-            this.interests.splice(index, 1);
-        }
-  
-        event.target.state = 'inactive';
-      }
-    }
-  }
-
-
-  toggleInterest(event): void{
+  addInterest(event) :void{
     for (var tag of this.tags){
-      if(tag.title == event.target.name){
+      if(tag.title == event.target.id){
         this.selectedTag = tag;
         break;
       }
     }
-  	if (this.interests.map(interest => interest.title).includes(event.target.name)){
-  		event.target.style['background'] = '#b7ffb7';
+  	if (!this.interests.map(interest => interest.title).includes(event.target.id)){
+      this.interests.push(this.selectedTag);
+
+      event.target.state = 'active';
+    }
+  	
+  }
+  removeInterest(event) :void{
+    for (var tag of this.tags){
+      if(tag.title == event.target.id){
+        this.selectedTag = tag;
+        break;
+      }
+    }
+  	if (this.interests.map(interest => interest.title).includes(event.target.id)){
   		
-  		const index: number = this.interests.map(interest => interest.title).indexOf(event.target.name);
+  		
+  		const index: number = this.interests.map(interest => interest.title).indexOf(event.target.id);
 	    if (index !== -1) {
-	        this.interests.splice(index, 1);
+          this.interests.splice(index, 1);
 	    }
 
       event.target.state = 'inactive';
   	}
-  	else{
-  		event.target.style['background'] = '#b7ff27';
-
-  		this.interests.push(this.selectedTag);
-
-      event.target.state = 'active';
-
-    }
-    
-  	
   }
+
 
  /* add(event: MatChipInputEvent): void {
     // Add fruit only when MatAutocomplete is not open

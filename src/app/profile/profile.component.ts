@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit {
 
 
     arrayColors = [];
-    
+
 
     user: User;
 
@@ -37,13 +37,12 @@ export class ProfileComponent implements OnInit {
                 
                 if (profileResponse.ok) {
                     this.user = profileResponse.profile;
-
+                    console.log(this.user)
                 } else {
 
                 }
             }
         );
-        alert(this.user.id)
     }
 
 }

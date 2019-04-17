@@ -35,8 +35,8 @@ export class MeService {
 		return this.http.post<ProfileResponse>(`${localStorage.getItem("server")}/me/profile`, {});
 	}
 
-	setInterests(interests): Observable<EditUserResponse>{
-		return this.http.post<EditUserResponse>(`${localStorage.getItem("server")}/me/edit`, { newInfo:{ interests: interests }});
+	editProfile(newInfo): Observable<EditUserResponse>{
+		return this.http.post<EditUserResponse>(`${localStorage.getItem("server")}/me/edit`, { newInfo: newInfo});
 	}
 
 }

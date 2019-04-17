@@ -5,7 +5,7 @@
     top: 0;
     bottom: 0;
     margin: auto;
-    background: rgb(2, 58, 14);
+    background: rgb(11, 66, 99);
 
 }
 .example-chip-list {
@@ -16,8 +16,8 @@
   
 
 #interestsMainDiv{
-    background: #33b433;
-    border: 1px solid green;
+    background: rgb(12, 115, 175);
+    
     display: flex;
     text-align: center;
     flex-direction: column;
@@ -34,6 +34,7 @@
     padding-top: 7%;
     width: 100%;
     text-align: center;
+    
 }
 
 #interestsTitleLable{
@@ -46,7 +47,7 @@
     width:100%;
     flex: 70%;
     overflow-y: scroll;
-    background: #55a555;
+    background: rgb(12, 115, 175);
 }
 
 #interestsMat-gridDiv{
@@ -64,9 +65,12 @@
     background:#b7ffb7;
 }
 
+
+
 #interestsSubmitDiv{
     width: 100%;
     flex: 10%;
+    
 }
 
 #interestsSubmitButton{
@@ -91,8 +95,6 @@
     max-width:100%;
     max-height:100%;
     overflow:auto;
-    
-    border: 1px solid #00c;
     border-radius: 10px;
     background: rgb(0, 54, 5)
     
@@ -103,7 +105,7 @@
     padding: 5%;
     padding-bottom: 5%;
     font-size: 2.8vw;
-    color: rgb(11, 66, 99);
+    color: rgb(12, 115, 175);
 }
 
 
