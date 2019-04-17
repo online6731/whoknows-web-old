@@ -22,6 +22,19 @@ import {
 
 import { TagService } from '../_services/tag.service';
 
+
+
+
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import {ElementRef, ViewChild} from '@angular/core';
+import {FormControl} from '@angular/forms';
+import {MatAutocompleteSelectedEvent, MatChipInputEvent, MatAutocomplete} from '@angular/material';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
+import { all } from 'q';
+import { Tag } from '../_models/tag';
+
+
 @Component({
   selector: 'app-interests',
   templateUrl: './interests.component.html',
@@ -65,17 +78,30 @@ import { TagService } from '../_services/tag.service';
 
 @Injectable()
 export class InterestsComponent implements OnInit {
-	
-  
-  tags = [];
-  interests = [];
+
+  separatorKeysCodes: number[] = [ENTER, COMMA];
+  tagCtrl = new FormControl();
+  filteredTags: Tag[];
+
+  @ViewChild('interestInput') interestsInput: ElementRef<HTMLInputElement>;
+  @ViewChild('auto') matAutocomplete: MatAutocomplete;
+
+
+
+
+
+
+
+  tags : Tag[];
+  interests : Tag[]=[];
+  selectedTag:Tag;
 
   constructor(
-		private   http              : HttpClient,
+  	private   http              : HttpClient,
 		public    router            : Router,
     private   TagService   : TagService,
     private MeService:  MeService
-  ) { }
+  ) {}
 
 
   ngOnInit() {
@@ -86,12 +112,11 @@ export class InterestsComponent implements OnInit {
     this.TagService.find().subscribe(
       (body) => {
         if (body.ok){
-        
-       		this.tags = body.tags;
-        
+           this.tags = body.tags;
+           this.filteredTags = this.tags;        
         }
         else {
-
+          console.error("ok is false");
         }
       }
     );
@@ -114,11 +139,16 @@ export class InterestsComponent implements OnInit {
 
 
   toggleInterest(event): void{
-
-  	if (this.interests.includes(event.target.name)){
+    for (var tag of this.tags){
+      if(tag.title == event.target.name){
+        this.selectedTag = tag;
+        break;
+      }
+    }
+  	if (this.interests.map(interest => interest.title).includes(event.target.name)){
   		event.target.style['background'] = '#b7ffb7';
   		
-  		const index: number = this.interests.indexOf(event.target.name);
+  		const index: number = this.interests.map(interest => interest.title).indexOf(event.target.name);
 	    if (index !== -1) {
 	        this.interests.splice(index, 1);
 	    }
@@ -128,12 +158,41 @@ export class InterestsComponent implements OnInit {
   	else{
   		event.target.style['background'] = '#b7ff27';
 
-  		this.interests.push(event.target.name);
+  		this.interests.push(this.selectedTag);
 
       event.target.state = 'active';
 
-  	}
+    }
+    
   	
   }
 
+ /* add(event: MatChipInputEvent): void {
+    // Add fruit only when MatAutocomplete is not open
+    // To make sure this does not conflict with OptionSelected Event
+    if (!this.matAutocomplete.isOpen) {
+      const input = event.input;
+      const value = event.value;
+
+      // Add our fruit
+      if (this.interests.includes(event.target.name)) {
+        this.interests.push(event.target.name());
+      }
+
+      // Reset the input value
+      if (input) {
+        input.value = '';
+      }
+
+      this.tagCtrl.setValue(null);
+    }
+  }*/
+
+
+
+  _filter(event){
+    
+    this.filteredTags = this.tags.filter(tag => tag.persianTitle.indexOf(event.target.value) === 0);
+  }
 }
+

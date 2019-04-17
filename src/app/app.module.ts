@@ -1,6 +1,6 @@
 import { MainComponent } from './main/main.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule , ElementRef, ViewChild } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
@@ -11,13 +11,16 @@ import {CdkStepperModule} from '@angular/cdk/stepper';
 import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule , FormControl ,ReactiveFormsModule} from '@angular/forms';
 import {InterestsComponent} from './interests/interests.component';
 import { ActivationComponent } from './activation/activation.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 
 
 
@@ -35,6 +38,9 @@ const appRoutes: Routes = [
 
 
 import { MatButtonModule,
+     MatAutocompleteSelectedEvent,
+     MatChipInputEvent,
+     MatAutocomplete,
 		 MatInputModule,
 		 MatCheckboxModule,
 		 MatFormFieldModule,
@@ -97,6 +103,12 @@ import { MatButtonModule,
     }), 
 	RouterModule.forRoot(appRoutes, { enableTracing: true } /* <-- debugging purposes only */ ),
     BrowserModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
 	BrowserAnimationsModule,
 	MatButtonModule,
 	MatCheckboxModule,
