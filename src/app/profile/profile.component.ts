@@ -34,6 +34,7 @@ export class ProfileComponent implements OnInit {
     getProfile(): void {
         this.MeService.getProfile().subscribe(
             (profileResponse) => {
+                
                 if (profileResponse.ok) {
                     this.user = profileResponse.profile;
 
@@ -42,6 +43,7 @@ export class ProfileComponent implements OnInit {
                 }
             }
         );
+        alert(this.user.id)
     }
 
 }

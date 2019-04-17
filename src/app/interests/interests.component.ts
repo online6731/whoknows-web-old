@@ -136,6 +136,20 @@ export class InterestsComponent implements OnInit {
   }
 
 
+  removeChip(event){
+    for(var tag of this.tags){
+      if(tag.title == event.target.id){
+        event.target.style['background'] = '#b7ffb7';
+        
+        const index: number = this.interests.map(interest => interest.title).indexOf(event.target.name);
+        if (index !== -1) {
+            this.interests.splice(index, 1);
+        }
+  
+        event.target.state = 'inactive';
+      }
+    }
+  }
 
 
   toggleInterest(event): void{

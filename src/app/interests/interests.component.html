@@ -12,7 +12,7 @@
 		<mat-chip
 			*ngFor="let tag of interests">
 			{{tag.persianTitle}}
-			<mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+			<mat-icon id = "{{tag.title}}" matChipRemove (click)="removeChip($event)">cancel</mat-icon>
 		</mat-chip>
 		<input
 			placeholder="جست و جو"
@@ -22,7 +22,7 @@
 			[formControl]="tagCtrl"
 			[matChipInputFor]="chipList"
 			[matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-			[matChipInputAddOnBlur]="addOnBlur"
+			[matChipInputAddOnBlur]="true"
 			(keyup)="_filter($event)">
 	</mat-chip-list>
 	<!-- <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
@@ -49,7 +49,7 @@
 				</div>
 	-->
 				
-					<img name="{{tag.title}}" src="assets/images/football.png" (click)="toggleInterest($event)" style="width: 8vw; height:8vw; margin: 4px; border-radius: 50%; z-index: -1;">
+					<img name="{{tag.title}}" src="assets/images/football.png" (click)="toggleInterest($event)" style="cursor :pointer; width: 8vw; height:8vw; margin: 4px; border-radius: 50%; z-index: -1;">
 					<img name="{{tag.title}}" src="assets/images/selectedicon2.png" (click)="toggleInterest($event)" style="width: 8vw; height:8vw; margin: 4px; border-radius: 50%; z-index: 0; left: -8vw; top:12vw;">
 				
 
