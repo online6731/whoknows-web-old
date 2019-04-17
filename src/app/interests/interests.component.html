@@ -5,14 +5,14 @@
 				<label id = "interestsTitleLable">علاقه مندی خود را انتخاب کنید</label>
 			</div>
 		</div>
-		
-		
+
+
 			<mat-form-field class="example-chip-list">
 	<mat-chip-list #chipList>
 		<mat-chip
 			*ngFor="let tag of interests">
 			{{tag.persianTitle}}
-			<mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+			<mat-icon matChipRemove *ngIf="true">cancel</mat-icon>
 		</mat-chip>
 		<input
 			placeholder="جست و جو"
@@ -22,13 +22,13 @@
 			[formControl]="tagCtrl"
 			[matChipInputFor]="chipList"
 			[matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-			[matChipInputAddOnBlur]="addOnBlur"
+			[matChipInputAddOnBlur]="true"
 			(keyup)="_filter($event)">
 	</mat-chip-list>
 	<!-- <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
 		<mat-option *ngFor="let tag of filteredTags | async" [value]="tag">
 			{{tag.persianTitle}}
-		</mat-option> 
+		</mat-option>
 	</mat-autocomplete> -->
 </mat-form-field>
 
@@ -41,27 +41,27 @@
 				*ngFor="let tag of filteredTags"
 				colspan="1"
 				rowspan="1">
-				
+
 				<div id = "interestsMat-gridDiv">
 	<!--
 				<div style="float: left;">
 					<img src="{{tags.picture}}" style="width: 100px; height: 100px; margin-left: 0px; ">
 				</div>
 	-->
-				
+
 					<img name="{{tag.title}}" src="assets/images/football.png" (click)="toggleInterest($event)" style="width: 8vw; height:8vw; margin: 4px; border-radius: 50%; z-index: -1;">
 					<img name="{{tag.title}}" src="assets/images/selectedicon2.png" (click)="toggleInterest($event)" style="width: 8vw; height:8vw; margin: 4px; border-radius: 50%; z-index: 0; left: -8vw; top:12vw;">
-				
+
 
 				</div>
-			
+
 			</mat-grid-tile>
 		</mat-grid-list>
 
 		<div id = "interestsSubmitDiv">
 			<button mat-flat-button id = "interestsSubmitButton" (click)="setInterests()">بعدی</button>
 		</div>
-	</div> 
+	</div>
 </div>
 
 

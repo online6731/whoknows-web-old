@@ -1,6 +1,19 @@
 export class User {
-	id			: string;
-	name		: string;
-	username 	: string;
-	coin		: number;
+  bio : string;
+  coin		: number;
+  followers : [string];
+  following : [string];
+  instagram : string;
+  level : number;
+  messages: [string];
+  picture : string;
+  score: number;
+  username: string;
+
+
+
+
+
+
+
 }
