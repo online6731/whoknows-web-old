@@ -2,10 +2,10 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { User } from '../_models/user';
-import { Game } from '../_models/game';
-import { GameListResponse } from '../_models/gameListResponse';
-import { GameJoinResponse } from '../_models/gameJoinResponse';
+import { ContestFindResponse } from '../_models/contestFindResponse';
+import { ContestJoinResponse } from '../_models/contestJoinResponse';
 import { MeService } from '../_services/me.service';
+import { Contest } from '../_models/contest';
 
 @Component({
     selector:     'app-main',
@@ -25,9 +25,9 @@ export class MainComponent implements OnInit {
         { label: 'shop'			, path: '/shop'}
     ];
 
-    startedGames:   Game[];
-    games:          Game[];
-    wantedGames:    Game[];
+    startedcontests:   Contest[];
+    contests:          Contest[];
+    wantedcontests:    Contest[];
     user:           User;
     smallWidth = false;
 
@@ -36,7 +36,7 @@ export class MainComponent implements OnInit {
         public  router:     Router,
         private MeService:  MeService
     ) {
-       this.games = [{name: 'football',duration		: 1000,  timeToStart 		: 800},{name: 'football',duration		: 1000,  timeToStart 		: 800},
+       /*this.contests = [{name: 'football',duration		: 1000,  timeToStart 		: 800},{name: 'football',duration		: 1000,  timeToStart 		: 800},
        {name: 'football',duration		: 1000,  timeToStart 		: 800},
        {name: 'football',duration		: 1000,  timeToStart 		: 800},
        {name: 'football',duration		: 1000,  timeToStart 		: 800},
@@ -57,9 +57,9 @@ export class MainComponent implements OnInit {
        {name: 'football',duration		: 1000,  timeToStart 		: 800},
        {name: 'football',duration		: 1000,  timeToStart 		: 800},
        {name: 'football',duration		: 1000,  timeToStart 		: 800},
-       
 
-      ];
+
+      ];*/
 
 
 
@@ -70,62 +70,62 @@ export class MainComponent implements OnInit {
     ngOnInit() {
 
         //this.getProfile();
-        //this.getListOfGames();
+        //this.getListOfcontests();
         //this.timeToStartTimer();
     }
 
-    /*getListOfGames(): void {
-        this.http.post<GameListResponse>(`${localStorage.getItem('server')}/game/list`, {}).subscribe(data => {
+    /*getListOfcontests(): void {
+        this.http.post<contestListResponse>(`${localStorage.getItem('server')}/contest/list`, {}).subscribe(data => {
             if (data.ok) {
-                this.games = data.games;
-                this.wantedGames = data.games;
-                this.games.forEach(function(game) {
-                    game.timeToStart = Math.round((new Date(game.rules.start.date).getTime() - Date.now()) / 1000);
+                this.contests = data.contests;
+                this.wantedcontests = data.contests;
+                this.contests.forEach(function(contest) {
+                    contest.timeToStart = Math.round((new Date(contest.rules.start.date).getTime() - Date.now()) / 1000);
                 });
-                // console.log(this.games);
-                // console.log(new Date(data.games[0].rules.start.date).getTime());
+                // console.log(this.contests);
+                // console.log(new Date(data.contests[0].rules.start.date).getTime());
                 // console.log(Date.now());
             } else {
                 // try again
             }
         });
 
-        // setTimeout(this.getListOfGames(), 1000 * 20);
+        // setTimeout(this.getListOfcontests(), 1000 * 20);
     }
 
-    gameJoin(id: string): void {
-        this.http.post<GameJoinResponse>(`${localStorage.getItem('server')}/game/${id}/team/online6731/join`, {}).subscribe(data => {
+    contestJoin(id: string): void {
+        this.http.post<contestJoinResponse>(`${localStorage.getItem('server')}/contest/${id}/team/online6731/join`, {}).subscribe(data => {
             console.log(data);
             if (data.ok) {
-                this.router.navigate([`/game/${id}/view`]);
+                this.router.navigate([`/contest/${id}/view`]);
             } else {
                 // try again
             }
-            // this.getListOfGames();
+            // this.getListOfcontests();
         });
     }
 
-    openGame(id: string): void {
-        this.router.navigate([`/game/${id}/view`]);
+    opencontest(id: string): void {
+        this.router.navigate([`/contest/${id}/view`]);
     }
 
     watchJoin(id: string): void {
-        this.http.post<GameJoinResponse>('${localStorage.getItem("server")}/game/list', {}).subscribe(data => {
+        this.http.post<contestJoinResponse>('${localStorage.getItem("server")}/contest/list', {}).subscribe(data => {
             if (data.ok) {
-                // redirect to game view
+                // redirect to contest view
             } else {
                 // try again
             }
-            // this.getListOfGames();
+            // this.getListOfcontests();
         });
     }
 
-    gameNew(): void {
-        this.router.navigate([`/game/new`]);
+    contestNew(): void {
+        this.router.navigate([`/contest/new`]);
     }
 
     quickPlay(): void {
-        this.router.navigate([`/game/${this.games[0].name}/view`]);
+        this.router.navigate([`/contest/${this.contests[0].name}/view`]);
     }
 
     getProfile(): void {
@@ -139,14 +139,14 @@ export class MainComponent implements OnInit {
     }
 
     timeToStartTimer(): void {
-        console.log('game.timeToStart');
-        if (this.games) {
-            // console.log("game.timeToStart");
-            this.games.forEach(function(game) {
-                if (game.timeToStart > -1000) {
-                    game.timeToStart -= 1;
+        console.log('contest.timeToStart');
+        if (this.contests) {
+            // console.log("contest.timeToStart");
+            this.contests.forEach(function(contest) {
+                if (contest.timeToStart > -1000) {
+                    contest.timeToStart -= 1;
                 }
-                // console.log(game.timeToStart);
+                // console.log(contest.timeToStart);
             });
         }
         setTimeout(this.timeToStartTimer, 1000 * 1);

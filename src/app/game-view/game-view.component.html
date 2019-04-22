@@ -2,37 +2,37 @@
 <div id="main">
 
 	<div style="flex: 9%; padding-top: 6vh; font-size: 30px;">
-		{{ game.name }} 
-	</div>
-	
-	<div style="flex: 5%;">
-		Starts at: {{ date }} 
-	</div>
-	
-	<div style="flex: 5%;">
-		Duration: 300 seconds 
+		{{ contest.name }}
 	</div>
 
 	<div style="flex: 5%;">
-		Level: 30 
+		Starts at: {{ date }}
 	</div>
-	
+
 	<div style="flex: 5%;">
-		Prize: 99999 coins 
+		Duration: 300 seconds
 	</div>
-	
+
+	<div style="flex: 5%;">
+		Level: 30
+	</div>
+
+	<div style="flex: 5%;">
+		Prize: 99999 coins
+	</div>
+
 	<!--mat-list style="flex: 20%; width: 30%; overflow-y: scroll;">
-		<mat-list-item *ngFor="let team of game.teams" style="text-align: center">
+		<mat-list-item *ngFor="let team of contest.teams" style="text-align: center">
 			{{ team.team }}
 		</mat-list-item>
 	</mat-list-->
 
 	<div class="submit-field">
-		<button mat-button *ngIf='!inGame()' (click)="joinGame(game.name)">
+		<button mat-button *ngIf='!incontest()' (click)="joincontest(contest.name)">
 			Join
 		</button>
-		
-		<button mat-button *ngIf='inGame()' (click)="openGame(game.name)">
+
+		<button mat-button *ngIf='incontest()' (click)="opencontest(contest.name)">
 			start
 		</button>
 	</div>

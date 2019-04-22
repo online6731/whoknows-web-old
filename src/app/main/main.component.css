@@ -32,7 +32,7 @@
 
 }
 
-.gamesList {
+.contestsList {
     width: 100vw;
     height: auto;
 }
@@ -79,7 +79,7 @@
 }
 
 @media (min-width: 500px) {
-	.gamesList.big {
+	.contestsList.big {
         display: block;
         overflow: scroll;
     }
@@ -87,7 +87,7 @@
       display: block;
 
     }
-    .gamesList.small {
+    .contestsList.small {
         display: none;
     }
     .topMenu.small{
@@ -96,7 +96,7 @@
 }
 
 @media (max-width: 800px) {
-	.gamesList.big {
+	.contestsList.big {
         display: none;
         overflow: scroll;
     }
@@ -104,7 +104,7 @@
       display: none;
 
     }
-    .gamesList.small {
+    .contestsList.small {
         display: block;
     }
     .topMenu.small{

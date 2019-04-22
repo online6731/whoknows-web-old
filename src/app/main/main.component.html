@@ -37,9 +37,9 @@
 
     </div>
 
-    <mat-list class="gamesList big">
+    <mat-list class="contestsList big">
 
-        <mat-list-item class="listItem" *ngFor="let game of games" >
+        <mat-list-item class="listItem" *ngFor="let contest of contests" >
 
             <div class="listItemDiv">
 
@@ -52,11 +52,11 @@
                 </div>
 
                 <div style="float: left; " class="inListItem">
-                    {{ game.name }}
+                    {{ contest.name }}
                 </div>
 
                 <div style="float: right; text-decoration: underline;" class="inListItem">
-                    {{ game.timeToStart > 0 ? game.timeToStart + ' seconds' : 'started' }}
+                    {{ contest.timeToStart > 0 ? contest.timeToStart + ' seconds' : 'started' }}
                 </div>
 
 
@@ -78,9 +78,9 @@
 
     </mat-list>
 
-    <mat-list class="gamesList small">
+    <mat-list class="contestsList small">
 
-        <mat-list-item class="listItem" *ngFor="let game of games">
+        <mat-list-item class="listItem" *ngFor="let contest of contests">
 
             <div class="listItemDiv">
 
@@ -93,11 +93,11 @@
                 </div>
 
                 <div style="float: left; " class="inListItem">
-                    {{ game.name }}
+                    {{ contest.name }}
                 </div>
 
                 <div style="float: right; text-decoration: underline;" class="inListItem">
-                    {{ game.timeToStart > 0 ? game.timeToStart + ' seconds' : 'started' }}
+                    {{ contest.timeToStart > 0 ? contest.timeToStart + ' seconds' : 'started' }}
                 </div>
 
 

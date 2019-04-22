@@ -16,30 +16,30 @@ import { User }
     from '../_models/user';
 import { sendAnswerResponse }
     from '../_models/sendAnswerResponse';
-import { viewGameResponse }
-    from '../_models/viewGameResponse';
-    import { joinGameResponse } from '../_models/joinGameResponse';
+import { viewContestResponse }
+    from '../_models/viewcontestResponse';
+    import { joinContestResponse } from '../_models/joincontestResponse';
 
-import { Game }
-    from '../_models/game';
+import { Contest }
+    from '../_models/contest';
 
-import { GameService } from '../_services/game.service';
+import { ContestService } from '../_services/contest.service';
 
 import { formatDate } from '@angular/common';
 
 
 @Component({
-  selector: 'app-game-view',
-  templateUrl: './game-view.component.html',
-  styleUrls: ['./game-view.component.css']
+  selector: 'app-contest-view',
+  templateUrl: './contest-view.component.html',
+  styleUrls: ['./contest-view.component.css']
 })
 
 
 @Injectable()
-export class GameViewComponent implements OnInit {
+export class ContestViewComponent implements OnInit {
 
-    game: Game;
-    isInGame = false;
+    contest: Contest;
+    isIncontest = false;
     teamNames = [];
     myTeam = localStorage.getItem("username");
     date;
@@ -48,30 +48,30 @@ export class GameViewComponent implements OnInit {
         private http    	: HttpClient,
         public  router  	: Router,
         private route 		: ActivatedRoute,
-        private GameService : GameService
+        private contestService : ContestService
   ) { }
 
 
   ngOnInit() {
-      //this.viewGame(this.route.snapshot.params.gameID);
-      localStorage.setItem("isInGame", "false");
+      //this.viewcontest(this.route.snapshot.params.contestID);
+      localStorage.setItem("isIncontest", "false");
   }
 
 /*
-  viewGame(gameID: string): void{
-      this.GameService.viewGame(gameID).subscribe(
-        (viewGameResponse: viewGameResponse) => {
-            if (viewGameResponse.ok){
+  viewcontest(contestID: string): void{
+      this.contestService.viewcontest(contestID).subscribe(
+        (viewcontestResponse: viewcontestResponse) => {
+            if (viewcontestResponse.ok){
 
-                this.game = viewGameResponse.game;
-                this.date = formatDate(this.game.rules.start.date, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0430');
+                this.contest = viewcontestResponse.contest;
+                this.date = formatDate(this.contest.rules.start.date, 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0430');
 
-                viewGameResponse.game.teams.forEach(function(team){
+                viewcontestResponse.contest.teams.forEach(function(team){
 
                     if (team.team == localStorage.getItem("username")){
-                        localStorage.setItem("isInGame", "true");
-                        //this.isInGame = true;
-                        console.log('you are in game');
+                        localStorage.setItem("isIncontest", "true");
+                        //this.isIncontest = true;
+                        console.log('you are in contest');
                     }
 
                     team.members.forEach(function(player){
@@ -79,7 +79,7 @@ export class GameViewComponent implements OnInit {
                     });
                 });
 
-                viewGameResponse.game.teams.forEach(function(team){
+                viewcontestResponse.contest.teams.forEach(function(team){
                     this.teamNames.push(team.team);
                 });
 
@@ -93,14 +93,14 @@ export class GameViewComponent implements OnInit {
 
 
 
-  joinGame(gameID: string): void{
-    this.GameService.joinGame(gameID, localStorage.getItem("username")).subscribe(
-        (joinGameResponse: joinGameResponse) => {
-            if (joinGameResponse.ok){
+  joincontest(contestID: string): void{
+    this.contestService.joincontest(contestID, localStorage.getItem("username")).subscribe(
+        (joincontestResponse: joincontestResponse) => {
+            if (joincontestResponse.ok){
 
-                this.viewGame(this.route.snapshot.params.gameID);
+                this.viewcontest(this.route.snapshot.params.contestID);
 
-                //this.router.navigate([`/game/${gameID}/team/${localStorage.getItem("username")}/play`]);
+                //this.router.navigate([`/contest/${contestID}/team/${localStorage.getItem("username")}/play`]);
             } else {
 
             }
@@ -108,12 +108,12 @@ export class GameViewComponent implements OnInit {
     );
   }
 
-  openGame(gameID: string): void {
-    this.router.navigate([`/game/${gameID}/team/${localStorage.getItem("username")}/play`]);
+  opencontest(contestID: string): void {
+    this.router.navigate([`/contest/${contestID}/team/${localStorage.getItem("username")}/play`]);
   }
 
-  inGame() {
-      return localStorage.getItem('isInGame') == 'true';
+  incontest() {
+      return localStorage.getItem('isIncontest') == 'true';
   }
 
 

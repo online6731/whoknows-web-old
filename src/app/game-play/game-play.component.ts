@@ -18,14 +18,14 @@ import { User }
 import { Question }
     from '../_models/question';
 
-import { Game }
-    from '../_models/game';
+import { Contest }
+    from '../_models/contest';
 
 import { sendAnswerResponse }
     from '../_models/sendAnswerResponse';
 
-import { viewGameResponse }
-    from '../_models/viewGameResponse';
+import { viewContestResponse }
+    from '../_models/viewcontestResponse';
 
 import { MatGridListModule,
          MatButtonToggleModule,
@@ -36,21 +36,21 @@ import { MatGridListModule,
         }
     from '@angular/material';
 
-import { GameService }
-    from '../_services/game.service';
+import { ContestService }
+    from '../_services/contest.service';
 
 
 @Component({
-    selector: 'app-game-play',
-    templateUrl: './game-play.component.html',
-    styleUrls: ['./game-play.component.css']
+    selector: 'app-contest-play',
+    templateUrl: './contest-play.component.html',
+    styleUrls: ['./contest-play.component.css']
 })
 
 
 @Injectable()
-export class GamePlayComponent implements OnInit {
-    gameEnded		: boolean = false;
-    game 			: Game;
+export class ContestPlayComponent implements OnInit {
+    contestEnded		: boolean = false;
+    contest 			: Contest;
     currentQuestion : Question;
     currentRound	: number = -1;
     score 			: number = 0;
@@ -59,24 +59,24 @@ export class GamePlayComponent implements OnInit {
         private http    	: HttpClient,
         public  router  	: Router,
         private route 		: ActivatedRoute,
-        private GameService : GameService
+        private contestService : ContestService
     ) { }
 
 
     ngOnInit() {
-        //this.viewGame(this.route.snapshot.params.gameID);
+        //this.viewcontest(this.route.snapshot.params.contestID);
     }
 
-   /* viewGame(gameID: string): void{
-          this.GameService.viewGame(gameID).subscribe(
-            (viewGameResponse: viewGameResponse) => {
-                if (viewGameResponse.ok){
+   /* viewcontest(contestID: string): void{
+          this.contestService.viewcontest(contestID).subscribe(
+            (viewcontestResponse: viewcontestResponse) => {
+                if (viewcontestResponse.ok){
 
-                    this.game = viewGameResponse.game;
+                    this.contest = viewcontestResponse.contest;
 
                     this.loadNextQuestion();
 
-                    viewGameResponse.game.teams.forEach(function(team){
+                    viewcontestResponse.contest.teams.forEach(function(team){
                         team.members.forEach(function(player){
 
                         });
@@ -92,7 +92,7 @@ export class GamePlayComponent implements OnInit {
 
 
     sendAnswer(answer: string): void{
-        this.GameService.sendAnswer(this.game.name, this.currentRound, answer).subscribe(
+        this.contestService.sendAnswer(this.contest.name, this.currentRound, answer).subscribe(
         (sendAnswerResponse: sendAnswerResponse) => {
             if (sendAnswerResponse.ok){
                 this.score += sendAnswerResponse.score;
@@ -106,12 +106,12 @@ export class GamePlayComponent implements OnInit {
     }
 
     loadNextQuestion(): void{
-        if (this.currentRound < this.game.questions.length - 1){
+        if (this.currentRound < this.contest.questions.length - 1){
             this.currentRound += 1;
             console.log(this.currentQuestion);
         } else {
-            this.gameEnded = true;
-            console.log('game ended');
+            this.contestEnded = true;
+            console.log('contest ended');
         }
     }
 

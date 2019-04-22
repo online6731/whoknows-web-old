@@ -2,7 +2,7 @@ import { Component,
 		 OnInit,
 		 Injectable,
 		 ElementRef,
-		 ViewChild }  
+		 ViewChild }
 	from '@angular/core';
 
 import { HttpClient }
@@ -25,8 +25,8 @@ import { Question } from '../_models/question';
 import { sendAnswerResponse }
 	from '../_models/sendAnswerResponse';
 
-import { viewGameResponse }
-	from '../_models/viewGameResponse';
+import { viewContestResponse }
+	from '../_models/viewcontestResponse';
 
 import {FormControl} from '@angular/forms';
 
@@ -47,8 +47,8 @@ import { MatGridListModule,
 //import {CalendarModule} from 'primeng/calendar';
 
 
-import { GameService } 
-	from '../_services/game.service';
+import { ContestService }
+	from '../_services/contest.service';
 
 import {Observable} from 'rxjs';
 
@@ -57,14 +57,14 @@ import {map, startWith} from 'rxjs/operators';
 
 
 @Component({
-	selector: 'app-game-new',
-	templateUrl: './game-new.component.html',
-	styleUrls: ['./game-new.component.css']
+	selector: 'app-contest-new',
+	templateUrl: './contest-new.component.html',
+	styleUrls: ['./contest-new.component.css']
 })
 
 
 @Injectable()
-export class GameNewComponent implements OnInit {
+export class ContestNewComponent implements OnInit {
 
 	visible = true;
   selectable = true;
@@ -75,17 +75,17 @@ export class GameNewComponent implements OnInit {
   filteredtags: Observable<string[]>;
   tags: string[] = ['movie'];
   alltags: string[] = ['music', 'footballPlayer', 'footballTeam', 'actor', 'director', 'name', 'country', 'book', 'quote'];
-	gameType = 'singlePlayer';
+	contestType = 'singlePlayer';
 	questionCount = 20;
 	duration = 300;
-	
+
   @ViewChild('tagInput') tagInput: ElementRef;
 
 
-  gameLength : number;
+  contestLength : number;
 
   startDate: Date;
-  
+
   startTime: Date;
 
   rangeDates: Date[];
@@ -104,7 +104,7 @@ export class GameNewComponent implements OnInit {
 		private http        : HttpClient,
 		public  router      : Router,
 		private route       : ActivatedRoute,
-		private GameService : GameService) {
+		private contestService : ContestService) {
 
 			this.filteredtags = this.tagCtrl.valueChanges.pipe(
 			startWith(null),
@@ -147,19 +147,19 @@ export class GameNewComponent implements OnInit {
     this.invalidDates = [today,invalidDate];
 	}
 
-	gameNew(type: string, tags: string[], questionCount: number, duration: number): void{
-		this.GameService.gameNew(type, tags, questionCount, duration).subscribe(data => {
+	/*ContestNew(type: string, tags: string[], questionCount: number, duration: number): void{
+		this.contestService.ContestNew(type, tags, questionCount, duration).subscribe(data => {
 			console.log(data);
 
 			if (data.ok){
-				this.router.navigate([`/game/${data.game.name}/view`]);
+				this.router.navigate([`/contest/${data.contest.name}/view`]);
 			}
 			else {
 				// try again
 			}
-			
+
 		});
-	}
+	}*/
 
 
   add(event: MatChipInputEvent): void {
