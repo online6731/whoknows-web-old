@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../_models/user';
 import { Contest } from '../_models/contest';
+import { Tag } from '../_models/tag';
+
 
 @Component({
   selector: 'app-contest-view',
@@ -11,6 +13,9 @@ import { Contest } from '../_models/contest';
 export class ContestViewComponent implements OnInit {
   contests:          Contest[];
   user:           User;
+  tags : Tag[]=[];
+  tagsTitle : string[];
+
 
   constructor() {
     this.contests =  [
@@ -23,7 +28,7 @@ export class ContestViewComponent implements OnInit {
     },
 
     roundsInfo                : [{
-        tags                : ['name'],
+        tags                : [{title: 'football', persianTitle: 'ptitlle' , _id: '1223' }],
         level                : 5,
         start                :new Date(),
         end                    :new Date(),
@@ -84,6 +89,16 @@ export class ContestViewComponent implements OnInit {
 
 
   ngOnInit() {
+       this.contests[0].roundsInfo.forEach((roundInfo)=>{
+       this.tags = this.tags.concat(roundInfo.tags);
+      });
+      this.tagsTitle= this.tags.map(tags => tags.title);
+      const set = new Set(this.tagsTitle);
+      this.tagsTitle = Array.from(set);
+      console.log(this.contests[0].roundsInfo);
+      console.log(this.tags);
+
+
   }
 
 }

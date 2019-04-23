@@ -30,7 +30,7 @@
       </div>
 
       <div>
-                  <div style="float: left; " class="inListItem">
+                  <div style="float:left; " class="inListItem">
                       {{ contests[0].name }}
                   </div>
                   <br>
@@ -39,7 +39,19 @@
                       {{ "موضوعات" }}
                   </div>
 
-                  <img src="assets/images/LEVEL ICON 1.png" style="width: 25px; height: 25px; margin-top:5%; margin-left:-150%;  ">
+                  <mat-grid-list cols="6" rowHeight="50px"  style=" border: 1px solid black; align-items: center; ">
+                   <mat-grid-tile
+
+                   *ngFor="let title of tagsTitle"
+                   colspan="2"
+                   rowspan="1">
+                  <div class="contest-photo">
+                  <img  id="{{title}}"   src="http://whoknows.ir:30000/static/app/picture/tag/{{title}}.png" style=" position:absolute; cursor :pointer; width: 30px; height:30px; margin: 4px; border-radius: 50%; z-index: 2; left:0vw;" >
+
+                </div>
+                   </mat-grid-tile>
+                  </mat-grid-list>
+
 
 
 

@@ -9,6 +9,7 @@ import { Contest } from '../_models/contest';
 import { ContestService } from '../_services/contest.service';
 import { ok } from 'assert';
 
+
 @Component({
     selector:     'app-main',
     templateUrl:  './main.component.html',
@@ -94,7 +95,7 @@ export class MainComponent implements OnInit {
           },
 
           roundsInfo                : [{
-              tags                : ["String"],
+              tags                : [{title: 'name', persianTitle: 'sss' , _id: '1223' }],
               level                : 55,
               start                :new Date(),
               end                    :new Date(),
