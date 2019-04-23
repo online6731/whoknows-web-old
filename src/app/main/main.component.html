@@ -55,20 +55,20 @@
                     {{ contest.name }}
                 </div>
 
-                <!--<div style="float: right; text-decoration: underline;" class="inListItem">
-                    {{ contest.timeToStart > 0 ? contest.timeToStart + ' seconds' : 'started' }}
-                </div>-->
+                <div style="float: right;" class="inListItem">
+                    [{{ ((contest.start.time - nowDate)/1000).toFixed() > 0 ? 'زمان باقی مانده تا شروع بازی : ' + ((contest.start.time-nowDate)/1000).toFixed() + ' ثانیه' : 'started' }}]
+                </div>
 
 
 
 
                 <div style="float: right;" class="inListItem">
-                    [duration]
+                    [مدت بازی : {{((contest.end.time-contest.start.time)/1000).toFixed()}}]
                 </div>
 
 
                 <div style="float: right;" class="inListItem">
-                    [level]
+                    [سطح : {{contest.roundsInfo[0].level}}]
                 </div>
 
 
@@ -96,9 +96,9 @@
                     {{ contest.name }}
                 </div>
 
-                <!--<div style="float: right; text-decoration: underline;" class="inListItem">
-                    {{ contest.timeToStart > 0 ? contest.timeToStart + ' seconds' : 'started' }}
-                </div>-->
+                <div style="float: right;" class="inListItem">
+                    [{{ ((contest.start.time - nowDate)/1000).toFixed() > 0 ? 'زمان باقی مانده تا شروع بازی : ' + ((contest.start.time - nowDate)/1000).toFixed() + ' ثانیه' : 'started' }}
+                </div>
 
 
 
@@ -112,3 +112,4 @@
     </mat-list>
 
 </div>
+

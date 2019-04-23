@@ -7,6 +7,7 @@ import { ContestJoinResponse } from '../_models/contestJoinResponse';
 import { MeService } from '../_services/me.service';
 import { Contest } from '../_models/contest';
 import { ContestService } from '../_services/contest.service';
+import { ok } from 'assert';
 
 @Component({
     selector:     'app-main',
@@ -27,17 +28,26 @@ export class MainComponent implements OnInit {
     ];
 
     startedcontests:   Contest[];
-    contests:          Contest[];
+    contests:          [Contest];
+    aab:          [Contest];
     wantedcontests:    Contest[];
     user:           User;
+    nowDate:        Date;
     smallWidth = false;
 
     constructor(
         private http:       HttpClient,
         public  router:     Router,
         private MeService:  MeService,
-        private ContestService:  ContestService
+        private ContestService:  ContestService,
+
+
     ) {
+      this.nowDate =  new Date();
+
+    setInterval(() => {
+        this.nowDate =  new Date();
+     }, 1000);
        /*this.contests = [{name: 'football',duration		: 1000,  timeToStart 		: 800},{name: 'football',duration		: 1000,  timeToStart 		: 800},
        {name: 'football',duration		: 1000,  timeToStart 		: 800},
        {name: 'football',duration		: 1000,  timeToStart 		: 800},
@@ -71,8 +81,81 @@ export class MainComponent implements OnInit {
 
     ngOnInit() {
 
-        //this.getProfile();
-        //this.getListOfcontests();
+
+      this.aab = [
+        {
+          name                    : "String",
+
+          type                    : "String",
+
+          prize                    : {
+              coin                 :"String",
+              score                :"String",
+          },
+
+          roundsInfo                : [{
+              tags                : ["String"],
+              level                : 55,
+              start                :new Date(),
+              end                    :new Date(),
+          }],
+
+          start                    : {
+              time                : new Date("2019-04-23T17:01:04.753Z"),
+              constants            : {
+                  min                : 55,
+                  max                : 55,
+              }
+          },
+
+          end                        : {
+              time                : new Date("2019-04-23T17:15:04.753Z"),
+              constants            : {
+                  min                : 55,
+                  max                : 55,
+              }
+          },
+
+          join                    : {
+              time                : new Date(),
+              level                : {
+                  min                : 55,
+                  max                : 55,
+              },
+              score                : {
+                  min                : 55,
+                  max                : 55,
+              },
+              payment                : {
+                  coin            : 55,
+              }
+          },
+
+          availability            : {
+              time                : new Date(),
+          },
+
+          generation                : {
+              time                : new Date(),
+          },
+
+          contestans                : [this.user],
+
+          rounds                    : [{
+              question            : [{ }], // should refer to question model
+              contestansts        : {
+                  username        : {
+                      answer        :"String",
+                  },
+              }
+          }],
+        }
+      ];
+
+
+        this.getProfile();
+        this.contests = (this.aab);
+        //this.contestFind(true , true);
         //this.timeToStartTimer();
     }
 
@@ -93,9 +176,9 @@ export class MainComponent implements OnInit {
         });
 
         // setTimeout(this.getListOfcontests(), 1000 * 20);
-    }
+    }*/
 
-    contestJoin(id: string): void {
+    /*contestJoin(id: string): void {
         this.http.post<contestJoinResponse>(`${localStorage.getItem('server')}/contest/${id}/team/online6731/join`, {}).subscribe(data => {
             console.log(data);
             if (data.ok) {
@@ -105,13 +188,13 @@ export class MainComponent implements OnInit {
             }
             // this.getListOfcontests();
         });
-    }
+    }*/
 
     opencontest(id: string): void {
         this.router.navigate([`/contest/${id}/view`]);
     }
 
-    watchJoin(id: string): void {
+    /*watchJoin(id: string): void {
         this.http.post<contestJoinResponse>('${localStorage.getItem("server")}/contest/list', {}).subscribe(data => {
             if (data.ok) {
                 // redirect to contest view
@@ -120,13 +203,13 @@ export class MainComponent implements OnInit {
             }
             // this.getListOfcontests();
         });
-    }
+    }*/
 
-    contestNew(): void {
+    /*contestNew(): void {
         this.router.navigate([`/contest/new`]);
-    }
+    }*/
 
-    quickPlay(): void {
+    /*quickPlay(): void {
         this.router.navigate([`/contest/${this.contests[0].name}/view`]);
     }*/
 
@@ -140,12 +223,16 @@ export class MainComponent implements OnInit {
         });
     }
 
-    contestFind(compact: boolean, condition: any): void{
+    /*contestFind(compact: boolean, condition: any): void{
       this.ContestService.contestFind(compact = true, condition).subscribe((body) => {
-
+        if(body.ok){
+          this.contests = (body.contests);
+          this.contests = (this.aab);
+        }
     });
 
-  }
+  }*/
+
 
     /*timeToStartTimer(): void {
         console.log('contest.timeToStart');
