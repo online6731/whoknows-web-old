@@ -54,7 +54,7 @@ export class ContestPlayComponent implements OnInit {
     currentQuestion : Question;
     currentRound	: number = -1;
     score 			: number = 0;
-    true_false_choices = ['علط', 'درست'];
+    true_false_choices = ['غلط', 'درست'];
     constructor(
         private http    	: HttpClient,
         public  router  	: Router,
