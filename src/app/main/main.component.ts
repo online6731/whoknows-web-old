@@ -6,6 +6,7 @@ import { ContestFindResponse } from '../_models/contestFindResponse';
 import { ContestJoinResponse } from '../_models/contestJoinResponse';
 import { MeService } from '../_services/me.service';
 import { Contest } from '../_models/contest';
+import { ContestService } from '../_services/contest.service';
 
 @Component({
     selector:     'app-main',
@@ -34,7 +35,8 @@ export class MainComponent implements OnInit {
     constructor(
         private http:       HttpClient,
         public  router:     Router,
-        private MeService:  MeService
+        private MeService:  MeService,
+        private ContestService:  ContestService
     ) {
        /*this.contests = [{name: 'football',duration		: 1000,  timeToStart 		: 800},{name: 'football',duration		: 1000,  timeToStart 		: 800},
        {name: 'football',duration		: 1000,  timeToStart 		: 800},
@@ -126,7 +128,7 @@ export class MainComponent implements OnInit {
 
     quickPlay(): void {
         this.router.navigate([`/contest/${this.contests[0].name}/view`]);
-    }
+    }*/
 
     getProfile(): void {
         this.MeService.getProfile().subscribe((profileResponse) => {
@@ -138,7 +140,14 @@ export class MainComponent implements OnInit {
         });
     }
 
-    timeToStartTimer(): void {
+    contestFind(compact: boolean, condition: any): void{
+      this.ContestService.contestFind(compact = true, condition).subscribe((body) => {
+
+    });
+
+  }
+
+    /*timeToStartTimer(): void {
         console.log('contest.timeToStart');
         if (this.contests) {
             // console.log("contest.timeToStart");
@@ -150,7 +159,6 @@ export class MainComponent implements OnInit {
             });
         }
         setTimeout(this.timeToStartTimer, 1000 * 1);
-    }
-*/
+    }*/
 }
 

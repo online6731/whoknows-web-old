@@ -23,6 +23,7 @@ import { viewContestResponse }
 	from '../_models/viewcontestResponse';
 
 import { joinContestResponse } from '../_models/joincontestResponse';
+import { ContestFindResponse } from '../_models/contestFindResponse';
 
 import { ContestNewResponse } from '../_models/contestNewResponse';
 
@@ -37,8 +38,15 @@ export class ContestService {
 
 
 	joinContest(contestID: string, teamID: string): Observable<joinContestResponse>{
-		return this.http.post<joinContestResponse>(`${localStorage.getItem("server")}/contest/${contestID}/team/${teamID}/join`, {});
-	}
+    return this.http.post<joinContestResponse>(`${localStorage.getItem("server")}/contest/${contestID}/team/${teamID}/join`, {});
+  }
+
+  
+
+  contestFind(compact: boolean, condition: any): Observable<ContestFindResponse>{
+
+    return this.http.post<ContestFindResponse>(`${localStorage.getItem("server")}/contest/find`, {compact: compact, condition: condition});
+  }
 
 /*	viewContest(contestID: string): Observable<viewContestResponse>{
 		return this.http.post<viewContestResponse>(`${localStorage.getItem("server")}/contest/${contestID}/view`, {});
