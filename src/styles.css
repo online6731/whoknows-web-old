@@ -35,9 +35,10 @@
     color: red;
 }
 
+
 .main{
     background: rgb(12, 115, 175);
-    position:absolute;
+    position: fixed;
     left:0;
     right:0;
     top:0;
@@ -63,6 +64,6 @@
 @media (max-width: 700px) {
 	.main{
 		width: 400px;
-		height: 420px;
+		height: 410px;
     }
 }
