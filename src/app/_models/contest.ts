@@ -12,7 +12,7 @@ export class Contest {
   }
 
   roundsInfo                : [{
-      tags                : [Tag];
+      tags                : Tag[];
       level                : Number;
       start                :Date;
       end                    :Date;

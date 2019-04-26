@@ -28,7 +28,7 @@ export class ContestViewComponent implements OnInit {
     },
 
     roundsInfo                : [{
-        tags                : [{title: 'football', persianTitle: 'ptitlle' , _id: '1223' }],
+        tags                : [{title: 'football', persianTitle: 'ptitlle' , _id: '1223' },{title: 'film', persianTitle: 'ptitlle' , _id: '1223' }],
         level                : 5,
         start                :new Date(),
         end                    :new Date(),
@@ -96,7 +96,7 @@ export class ContestViewComponent implements OnInit {
       const set = new Set(this.tagsTitle);
       this.tagsTitle = Array.from(set);
       console.log(this.contests[0].roundsInfo);
-      console.log(this.tags);
+      console.log(this.tagsTitle);
 
 
   }

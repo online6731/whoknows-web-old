@@ -11,6 +11,25 @@
 }
 #main{
   background-color: rgb(12, 115, 175);
+  position: fixed;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  margin:scroll;
+  max-width:100%;
+  max-height:100%;
+  overflow:hidden;
+  /*border: 1px solid rgb(11, 66, 99);*/
+  border-radius: 0;
+  background: rgb(11, 66, 99);
+  width: 100vw;
+height: 100vh;
+  display: flex;
+text-align: center;
+flex-direction: column;
+align-items: center;
+  padding-top: 200px;
 }
 .topMenu  {
   position: fixed;
