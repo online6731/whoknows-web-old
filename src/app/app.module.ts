@@ -21,6 +21,8 @@ import { ProfileComponent } from './profile/profile.component';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { Contest } from './_models/contest';
+import { ContestViewComponent } from './contest-view/contest-view.component';
 
 
 
@@ -31,7 +33,9 @@ const appRoutes: Routes = [
     { path: 'interests',             component: InterestsComponent,       canActivate: [] },
     { path: 'main',             component: MainComponent,       canActivate: [] },
     { path: 'activation',             component: ActivationComponent,       canActivate: [] },
-    { path: 'profile',             component: ProfileComponent,       canActivate: [] }
+    { path: 'profile',             component: ProfileComponent,       canActivate: [] },
+    { path: 'contest-view',             component: ContestViewComponent,       canActivate: [] }
+
 
 ];
 
@@ -87,6 +91,7 @@ import { MatButtonModule,
     MainComponent,
     ActivationComponent,
     ProfileComponent,
+    ContestViewComponent,
   ],
   imports: [
     HttpClientModule,
@@ -100,7 +105,7 @@ import { MatButtonModule,
         headerName: 'authorization',
         authScheme: ''
       }
-    }), 
+    }),
 	RouterModule.forRoot(appRoutes, { enableTracing: true } /* <-- debugging purposes only */ ),
     BrowserModule,
     BrowserModule,

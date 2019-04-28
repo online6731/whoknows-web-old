@@ -1,4 +1,5 @@
 import { User } from './user';
+import { Tag } from './tag';
 
 export class Contest {
   name                    : String;
@@ -11,7 +12,7 @@ export class Contest {
   }
 
   roundsInfo                : [{
-      tags                : [String];
+      tags                : Tag[];
       level                : Number;
       start                :Date;
       end                    :Date;
