@@ -12,6 +12,7 @@ export class ContestViewComponent implements OnInit {
   contests:          Contest[];
   user:           User;
 
+
   constructor() {
     this.contests =  [
       {name : 'مسابقه دوره ای 132',
@@ -84,6 +85,7 @@ export class ContestViewComponent implements OnInit {
 
 
   ngOnInit() {
+
   }
 
 }

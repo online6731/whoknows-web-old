@@ -94,7 +94,7 @@ export class MainComponent implements OnInit {
           },
 
           roundsInfo                : [{
-              tags                : ["String"],
+              tags                : [Tag],
               level                : 55,
               start                :new Date(),
               end                    :new Date(),
