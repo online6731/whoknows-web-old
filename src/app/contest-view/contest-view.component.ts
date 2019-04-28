@@ -17,6 +17,7 @@ export class ContestViewComponent implements OnInit {
   tagsTitle : string[];
 
 
+
   constructor() {
     this.contests =  [
       {name : 'مسابقه دوره ای 132',
