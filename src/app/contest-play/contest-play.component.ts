@@ -24,8 +24,6 @@ import { Contest }
 import { SendAnswerResponse }
     from '../_models/sendAnswerResponse';
 
-import { ViewContestResponse } from '../_models/viewContestResponse';
-
 import { MatGridListModule,
          MatButtonToggleModule,
          MatButtonModule,
