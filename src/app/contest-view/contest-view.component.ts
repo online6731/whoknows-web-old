@@ -19,6 +19,7 @@ export class ContestViewComponent implements OnInit {
 
 
   constructor() {
+    
     this.contests =  [
       {name : 'مسابقه دوره ای 132',
      type  : 'kk',
@@ -29,7 +30,7 @@ export class ContestViewComponent implements OnInit {
     },
 
     roundsInfo                : [{
-        tags                : [{title: 'football', persianTitle: 'ptitlle' , _id: '1223' },{title: 'film', persianTitle: 'ptitlle' , _id: '1223' }],
+        tags                : [{title: 'football', persianTitle: 'ptitlle' , _id: '1223' },{title: 'film', persianTitle: 'ptitlle' , _id: '1223' },{title: 'car', persianTitle: 'ptitlle' , _id: '1223' },{title: 'book', persianTitle: 'ptitlle' , _id: '1223' }],
         level                : 5,
         start                :new Date(),
         end                    :new Date(),
