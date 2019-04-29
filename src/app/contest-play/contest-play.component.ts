@@ -67,7 +67,7 @@ export class ContestPlayComponent implements OnInit {
         //this.viewcontest(this.route.snapshot.params.contestID);
     }
 
-   /* viewcontest(contestID: string): void{
+   /*gi viewcontest(contestID: string): void{
           this.contestService.viewcontest(contestID).subscribe(
             (viewcontestResponse: viewcontestResponse) => {
                 if (viewcontestResponse.ok){

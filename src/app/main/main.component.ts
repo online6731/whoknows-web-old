@@ -102,7 +102,7 @@ export class MainComponent implements OnInit {
           }],
 
           start                    : {
-              time                : new Date("2019-04-23T17:01:04.753Z"),
+              time                : new Date("2019-05-02T17:01:04.753Z"),
               constants            : {
                   min                : 55,
                   max                : 55,
@@ -110,7 +110,7 @@ export class MainComponent implements OnInit {
           },
 
           end                        : {
-              time                : new Date("2019-04-23T17:15:04.753Z"),
+              time                : new Date("2019-05-02T17:15:04.753Z"),
               constants            : {
                   min                : 55,
                   max                : 55,
