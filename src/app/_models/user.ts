@@ -1,11 +1,11 @@
 export class User {
   bio : string;
   coin		: number;
-  followers : [string];
-  following : [string];
+  followers : string[];
+  following : string[];
   instagram : string;
   level : number;
-  messages: [string];
+  messages: string[];
   picture : string;
   score: number;
   username: string;

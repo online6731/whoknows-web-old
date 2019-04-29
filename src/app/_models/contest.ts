@@ -11,12 +11,12 @@ export class Contest {
       score                :String;
   }
 
-  roundsInfo                : [{
+  roundsInfo                : {
       tags                : Tag[];
       level                : Number;
       start                :Date;
       end                    :Date;
-  }];
+  }[];
 
   start                    : {
       time                : Date;
@@ -57,15 +57,15 @@ export class Contest {
       time                : Date;
   };
 
-  contestans                : [User];
+  contestans                : User[];
 
-  rounds                    : [{
+  rounds                    : {
       question            : [{ }]; // should refer to question model
       contestansts        : {
           username        : {
               answer        :String;
           };
       }
-  }];
+  }[];
 
 }

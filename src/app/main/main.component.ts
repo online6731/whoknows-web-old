@@ -29,8 +29,8 @@ export class MainComponent implements OnInit {
     ];
 
     startedcontests:   Contest[];
-    contests:          [Contest];
-    aab:          [Contest];
+    contests:          Contest[];
+    aab:          Contest[];
     wantedcontests:    Contest[];
     user:           User;
     nowDate:        Date;
