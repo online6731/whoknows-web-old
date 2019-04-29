@@ -2,7 +2,7 @@ import { Contest }
 	from './contest';
 
 
-export class viewContestResponse {
+export class ViewContestResponse {
 	ok					: string;
 	response 			: string;
 	problem				: string;

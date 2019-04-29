@@ -25,7 +25,7 @@ import { Question } from '../_models/question';
 import { sendAnswerResponse }
 	from '../_models/sendAnswerResponse';
 
-import { viewContestResponse }
+import { ViewContestResponse }
 	from '../_models/viewContestResponse';
 
 import {FormControl} from '@angular/forms';

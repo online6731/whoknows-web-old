@@ -19,7 +19,7 @@ import { Contest }
 import { sendAnswerResponse }
 	from '../_models/sendAnswerResponse';
 
-import { viewContestResponse }
+import { ViewContestResponse }
 	from '../_models/viewContestResponse';
 
 import { joinContestResponse } from '../_models/joinContestResponse';
@@ -48,8 +48,8 @@ export class ContestService {
     return this.http.post<ContestFindResponse>(`${localStorage.getItem("server")}/contest/find`, {compact: compact, condition: condition});
   }
 
-/*	viewContest(contestID: string): Observable<viewContestResponse>{
-		return this.http.post<viewContestResponse>(`${localStorage.getItem("server")}/contest/${contestID}/view`, {});
+/*	viewContest(contestID: string): Observable<ViewContestResponse>{
+		return this.http.post<ViewContestResponse>(`${localStorage.getItem("server")}/contest/${contestID}/view`, {});
 	}*/
 
 /*	sendAnswer(contestID: string, round: number, answer: string): Observable<sendAnswerResponse>{

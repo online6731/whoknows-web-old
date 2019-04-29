@@ -24,7 +24,7 @@ import { Contest }
 import { sendAnswerResponse }
     from '../_models/sendAnswerResponse';
 
-import { viewContestResponse }
+import { ViewContestResponse }
     from '../_models/viewContestResponse';
 
 import { MatGridListModule,
@@ -69,14 +69,14 @@ export class ContestPlayComponent implements OnInit {
 
    /*gi viewcontest(contestID: string): void{
           this.contestService.viewcontest(contestID).subscribe(
-            (viewcontestResponse: viewcontestResponse) => {
-                if (viewcontestResponse.ok){
+            (ViewContestResponse: ViewContestResponse) => {
+                if (ViewContestResponse.ok){
 
-                    this.contest = viewcontestResponse.contest;
+                    this.contest = ViewContestResponse.contest;
 
                     this.loadNextQuestion();
 
-                    viewcontestResponse.contest.teams.forEach(function(team){
+                    ViewContestResponse.contest.teams.forEach(function(team){
                         team.members.forEach(function(player){
 
                         });
