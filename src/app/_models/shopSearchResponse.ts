@@ -1,7 +1,7 @@
 import { Good } from './good.js';
 
 
-export class shopSearchResponse {
+export class ShopSearchResponse {
 	ok						: string;
 	response 				: string;
 	goods					: [Good];

@@ -1,7 +1,7 @@
 import { User } from './user'
 
 
-export class joinContestResponse {
+export class JoinContestResponse {
 	ok				: string;
 	response 		: string;
 	problem			: string;

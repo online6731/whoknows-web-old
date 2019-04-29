@@ -22,11 +22,11 @@ import { User }
 import { Question } from '../_models/question';
 
 
-import { sendAnswerResponse }
+import { SendAnswerResponse }
 	from '../_models/sendAnswerResponse';
 
-import { viewContestResponse }
-	from '../_models/viewcontestResponse';
+import { ViewContestResponse }
+	from '../_models/viewContestResponse';
 
 import {FormControl} from '@angular/forms';
 

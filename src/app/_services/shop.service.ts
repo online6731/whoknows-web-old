@@ -1,16 +1,16 @@
-import { Injectable } 
+import { Injectable }
 	from '@angular/core';
 
 import { HttpClient }
 	from '@angular/common/http';
 
-import { Observable, of } 
+import { Observable, of }
 	from 'rxjs';
 
-import { buyResponse }
+import { BuyResponse }
 	from '../_models/buyResponse';
-	
-import { shopSearchResponse } from '../_models/shopSearchResponse';
+
+import { ShopSearchResponse } from '../_models/shopSearchResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -20,14 +20,14 @@ export class ShopService {
   	constructor(
   		private http    	: HttpClient,
 	) {}
-  	
 
-	buy(goodID: string): Observable<buyResponse>{
-		return this.http.post<buyResponse>(`${localStorage.getItem("server")}/shop/good/${goodID}/buy`, {});
+
+	buy(goodID: string): Observable<BuyResponse>{
+		return this.http.post<BuyResponse>(`${localStorage.getItem("server")}/shop/good/${goodID}/buy`, {});
 	}
-	
-	search(): Observable<shopSearchResponse>{
-		return this.http.post<shopSearchResponse>(`${localStorage.getItem("server")}/shop/search`, {});
+
+	search(): Observable<ShopSearchResponse>{
+		return this.http.post<ShopSearchResponse>(`${localStorage.getItem("server")}/shop/search`, {});
 	}
 
 }

@@ -1,5 +1,5 @@
 
-export class sendAnswerResponse {
+export class SendAnswerResponse {
 	ok						: string;
 	response 				: string;
 	problem					: string;

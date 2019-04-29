@@ -1,5 +1,5 @@
 
-export class buyResponse {
+export class BuyResponse {
 	ok						: string;
 	response 				: string;
 }
