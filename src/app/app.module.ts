@@ -34,7 +34,7 @@ const appRoutes: Routes = [
     { path: 'main',             component: MainComponent,       canActivate: [] },
     { path: 'activation',             component: ActivationComponent,       canActivate: [] },
     { path: 'profile',             component: ProfileComponent,       canActivate: [] },
-    { path: 'contest/view',             component: ContestViewComponent,       canActivate: [] }
+    { path: 'contest-view',             component: ContestViewComponent,       canActivate: [] }
 
 
 ];
