@@ -19,7 +19,7 @@ export class ContestViewComponent implements OnInit {
 
 
   constructor() {
-    
+
     this.contests =  [
       {name : 'مسابقه دوره ای 132',
      type  : 'kk',

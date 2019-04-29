@@ -43,12 +43,6 @@ export class ShopComponent implements OnInit {
 	goods		: Good[];
 	user		: User;
 
-	navLinks = [
-		{ label: 'friends'		, path: '/friends'},
-		{ label: 'play'			, path: '/main'},
-		{ label: 'profile'		, path: '/profile'},
-		{ label: 'shop'			, path: '/shop'}
-	];
 
 
 	constructor(
