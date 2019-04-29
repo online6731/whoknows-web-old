@@ -1,6 +1,6 @@
 import { Component,
 		OnInit,
-		Injectable }  
+		Injectable }
 	from '@angular/core';
 
 import { HttpClient }
@@ -12,7 +12,7 @@ import { RouterModule, Router }
 import { Good }
 	from '../_models/good';
 
-import { User } 
+import { User }
 	from '../_models/user';
 
 
@@ -25,11 +25,11 @@ import { MatGridListModule,
 	from '@angular/material';
 
 
-import { ShopService } 
+import { ShopService }
   from '../_services/shop.service';
 
 
-import { MeService } 
+import { MeService }
 	from '../_services/me.service';
 
 @Component({
@@ -39,7 +39,7 @@ import { MeService }
 })
 
 export class ShopComponent implements OnInit {
-	
+
 	goods		: [Good];
 	user		: User;
 
@@ -65,34 +65,34 @@ export class ShopComponent implements OnInit {
 	}
 
 	buy(goodID): void{
-		this.ShopService.buy(goodID).subscribe((buyResponse) => {
-			
-			console.log(buyResponse);
-			
-			if (buyResponse.ok){
+		this.ShopService.buy(goodID).subscribe((BuyResponse) => {
+
+			console.log(BuyResponse);
+
+			if (BuyResponse.ok){
 				this.getProfile();
 			}
 			else {
-				
+
 			}
 		});
     }
-	
+
 	search(): void{
-		this.ShopService.search().subscribe((shopSearchResponse) => {
-			
-			console.log(shopSearchResponse);
-			
-			if (shopSearchResponse.ok){
-				this.goods = shopSearchResponse.goods;
+		this.ShopService.search().subscribe((ShopSearchResponse) => {
+
+			console.log(ShopSearchResponse);
+
+			if (ShopSearchResponse.ok){
+				this.goods = ShopSearchResponse.goods;
 			}
 			else {
-				
+
 			}
 		});
     }
-    
-    
+
+
   	getProfile(): void{
 		this.MeService.getProfile().subscribe(
 			(profileResponse) => {

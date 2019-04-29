@@ -16,13 +16,13 @@ import { Question }
 import { Contest }
 	from '../_models/contest';
 
-import { sendAnswerResponse }
+import { SendAnswerResponse }
 	from '../_models/sendAnswerResponse';
 
 import { ViewContestResponse }
 	from '../_models/viewContestResponse';
 
-import { joinContestResponse } from '../_models/joinContestResponse';
+import { JoinContestResponse } from '../_models/joinContestResponse';
 import { ContestFindResponse } from '../_models/contestFindResponse';
 
 import { ContestNewResponse } from '../_models/contestNewResponse';
@@ -37,8 +37,8 @@ export class ContestService {
 	) {}
 
 
-	joinContest(contestID: string, teamID: string): Observable<joinContestResponse>{
-    return this.http.post<joinContestResponse>(`${localStorage.getItem("server")}/contest/${contestID}/team/${teamID}/join`, {});
+	joinContest(contestID: string, teamID: string): Observable<JoinContestResponse>{
+    return this.http.post<JoinContestResponse>(`${localStorage.getItem("server")}/contest/${contestID}/team/${teamID}/join`, {});
   }
 
 
@@ -52,8 +52,8 @@ export class ContestService {
 		return this.http.post<ViewContestResponse>(`${localStorage.getItem("server")}/contest/${contestID}/view`, {});
 	}*/
 
-/*	sendAnswer(contestID: string, round: number, answer: string): Observable<sendAnswerResponse>{
-		return this.http.post<sendAnswerResponse>(`${localStorage.getItem("server")}/contest/${contestID}/round/${round}/answer`, { answer: answer, questionID: round});
+/*	sendAnswer(contestID: string, round: number, answer: string): Observable<SendAnswerResponse>{
+		return this.http.post<SendAnswerResponse>(`${localStorage.getItem("server")}/contest/${contestID}/round/${round}/answer`, { answer: answer, questionID: round});
 	}*/
 
 /*	contestNew(type: string, tags: string[], questionCount: number, duration: number): Observable<ContestNewResponse>{

@@ -22,7 +22,7 @@ import { User }
 import { Question } from '../_models/question';
 
 
-import { sendAnswerResponse }
+import { SendAnswerResponse }
 	from '../_models/sendAnswerResponse';
 
 import { ViewContestResponse }

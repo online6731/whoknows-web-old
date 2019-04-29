@@ -21,11 +21,10 @@ import { Question }
 import { Contest }
     from '../_models/contest';
 
-import { sendAnswerResponse }
+import { SendAnswerResponse }
     from '../_models/sendAnswerResponse';
 
-import { ViewContestResponse }
-    from '../_models/viewContestResponse';
+import { ViewContestResponse } from '../_models/viewContestResponse';
 
 import { MatGridListModule,
          MatButtonToggleModule,
@@ -38,6 +37,7 @@ import { MatGridListModule,
 
 import { ContestService }
     from '../_services/contest.service';
+import { from } from 'rxjs';
 
 
 @Component({
@@ -93,9 +93,9 @@ export class ContestPlayComponent implements OnInit {
 
     sendAnswer(answer: string): void{
         this.contestService.sendAnswer(this.contest.name, this.currentRound, answer).subscribe(
-        (sendAnswerResponse: sendAnswerResponse) => {
-            if (sendAnswerResponse.ok){
-                this.score += sendAnswerResponse.score;
+        (SendAnswerResponse: SendAnswerResponse) => {
+            if (SendAnswerResponse.ok){
+                this.score += SendAnswerResponse.score;
                 //this.loadNextQuestion();
             } else {
                 console.log('errooooooooooor');
