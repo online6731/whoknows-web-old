@@ -40,7 +40,7 @@ import { MeService }
 
 export class ShopComponent implements OnInit {
 
-	goods		: [Good];
+	goods		: Good[];
 	user		: User;
 
 	navLinks = [
