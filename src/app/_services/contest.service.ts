@@ -20,9 +20,9 @@ import { sendAnswerResponse }
 	from '../_models/sendAnswerResponse';
 
 import { viewContestResponse }
-	from '../_models/viewcontestResponse';
+	from '../_models/viewContestResponse';
 
-import { joinContestResponse } from '../_models/joincontestResponse';
+import { joinContestResponse } from '../_models/joinContestResponse';
 import { ContestFindResponse } from '../_models/contestFindResponse';
 
 import { ContestNewResponse } from '../_models/contestNewResponse';
@@ -41,7 +41,7 @@ export class ContestService {
     return this.http.post<joinContestResponse>(`${localStorage.getItem("server")}/contest/${contestID}/team/${teamID}/join`, {});
   }
 
-  
+
 
   contestFind(compact: boolean, condition: any): Observable<ContestFindResponse>{
 

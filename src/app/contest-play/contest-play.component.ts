@@ -25,7 +25,7 @@ import { sendAnswerResponse }
     from '../_models/sendAnswerResponse';
 
 import { viewContestResponse }
-    from '../_models/viewcontestResponse';
+    from '../_models/viewContestResponse';
 
 import { MatGridListModule,
          MatButtonToggleModule,
