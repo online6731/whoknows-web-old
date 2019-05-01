@@ -38,7 +38,7 @@ export class MainComponent implements OnInit {
     nowDate:        Date;
     aaaa:         Date;
     bbbb:         Date;
-    selectedTime: string = "thisWeek";
+    selectedTime: string = "today";
     smallWidth = false;
 
     constructor(
@@ -107,7 +107,7 @@ export class MainComponent implements OnInit {
           }],
 
           start                    : {
-              time                : new Date("2019-05-02T17:01:04.753Z"),
+              time                : new Date("Wed May 02 2019 23:59:59 GMT+0430 (Iran Daylight Time)"),
               constants            : {
                   min                : 55,
                   max                : 55,
@@ -115,7 +115,7 @@ export class MainComponent implements OnInit {
           },
 
           end                        : {
-              time                : new Date("2019-05-02T17:15:04.753Z"),
+              time                : new Date("Wed May 03 2019 23:01:04 GMT+0430 (Iran Daylight Time)"),
               constants            : {
                   min                : 55,
                   max                : 55,
@@ -174,7 +174,7 @@ export class MainComponent implements OnInit {
           }],
 
           start                    : {
-              time                : new Date("2019-05-01T17:01:04.753Z"),
+              time                : new Date("2019-05-01T19:01:04.753Z"),
               constants            : {
                   min                : 55,
                   max                : 55,
@@ -231,7 +231,7 @@ export class MainComponent implements OnInit {
         this.contests = this.contests.concat(this.aab[0]);
         this.contests = this.contests.concat(this.aab[1]);
         //this.aaaa = new Date(this.contests[0].start.time.getFullYear(), this.contests[0].start.time.getMonth(), this.contests[0].start.time.getDate());
-       // this.aaaa = new Date(this.nowDate.getFullYear(), this.nowDate.getMonth(), this.nowDate.getDate());
+       this.aaaa = new Date(this.nowDate.getFullYear(), this.nowDate.getMonth(), this.nowDate.getDate());
         //this.contestFind(false , {});
         //this.timeToStartTimer();
     }
@@ -269,6 +269,10 @@ export class MainComponent implements OnInit {
 
     opencontest(id: string): void {
         this.router.navigate([`/contest/${id}/view`]);
+    }
+
+    changeFilter(filter: string){
+      this.selectedTime = filter;
     }
 
     /*watchJoin(id: string): void {
