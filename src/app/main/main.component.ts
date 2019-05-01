@@ -38,7 +38,7 @@ export class MainComponent implements OnInit {
     nowDate:        Date;
     aaaa:         Date;
     bbbb:         Date;
-    selectedTime: string = "today";
+    selectedTime: string = "thisWeek";
     smallWidth = false;
 
     constructor(
@@ -88,7 +88,7 @@ export class MainComponent implements OnInit {
     ngOnInit() {
 
 
-     /* this.aab = [
+      this.aab = [
         {
           name                    : "String",
 
@@ -224,15 +224,15 @@ export class MainComponent implements OnInit {
           }],
         },
 
-      ];*/
+      ];
 
 
         this.getProfile();
-        //this.contests = this.contests.concat(this.aab[0]);
-        //this.contests = this.contests.concat(this.aab[1]);
+        this.contests = this.contests.concat(this.aab[0]);
+        this.contests = this.contests.concat(this.aab[1]);
         //this.aaaa = new Date(this.contests[0].start.time.getFullYear(), this.contests[0].start.time.getMonth(), this.contests[0].start.time.getDate());
        // this.aaaa = new Date(this.nowDate.getFullYear(), this.nowDate.getMonth(), this.nowDate.getDate());
-        this.contestFind(false , {});
+        //this.contestFind(false , {});
         //this.timeToStartTimer();
     }
 
@@ -300,14 +300,14 @@ export class MainComponent implements OnInit {
         });
     }
 
-    contestFind(compact: boolean, condition: any): void{
+    /*contestFind(compact: boolean, condition: any): void{
       this.ContestService.contestFind(compact, condition).subscribe((body) => {
         if(body.ok){
           this.contests.concat(body.contests);
         }
     });
 
-  }
+  }*/
 
 
     /*timeToStartTimer(): void {

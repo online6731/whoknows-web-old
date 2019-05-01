@@ -44,7 +44,7 @@
 
     <mat-list class="contestsList big">
 
-        <mat-list-item class="listItem" *ngFor="let contest of (contests | timeee)" >
+        <mat-list-item class="listItem" *ngFor="let contest of (contests | time: selectedTime)" >
 
             <div class="listItemDiv">
 
@@ -85,7 +85,7 @@
 
     <mat-list class="contestsList small">
 
-        <mat-list-item class="listItem" *ngFor="let contest of (contests | timeee)">
+        <mat-list-item class="listItem" *ngFor="let contest of (contests | time: selectedTime)">
 
             <div class="listItemDiv">
 
