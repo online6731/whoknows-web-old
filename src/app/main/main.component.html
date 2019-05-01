@@ -21,9 +21,11 @@
             <button mat-menu-item> دوستان </button>
         </mat-menu>
     </div>
-    <div>
-      <h1>The hero's birthday is {{ nowDate | date:"yyyy/MM/dd" }}</h1>
-    </div>
+<div>
+  <p> {{aaaa}}</p>
+</div>
+
+
     <div class="topMenu big">
         <img src="assets/images/man 2.png" style="position:absolute; left:5px; top:5px; max-height:50px; max-width:50px; ">
 
@@ -42,7 +44,7 @@
 
     <mat-list class="contestsList big">
 
-        <mat-list-item class="listItem" *ngFor="let contest of contests" >
+        <mat-list-item class="listItem" *ngFor="let contest of (contests | timeee)" >
 
             <div class="listItemDiv">
 
@@ -83,7 +85,7 @@
 
     <mat-list class="contestsList small">
 
-        <mat-list-item class="listItem" *ngFor="let contest of contests">
+        <mat-list-item class="listItem" *ngFor="let contest of (contests | timeee)">
 
             <div class="listItemDiv">
 

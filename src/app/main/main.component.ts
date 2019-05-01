@@ -7,7 +7,9 @@ import { ContestJoinResponse } from '../_models/contestJoinResponse';
 import { MeService } from '../_services/me.service';
 import { Contest } from '../_models/contest';
 import { ContestService } from '../_services/contest.service';
+import { FilterBarPipeTime } from './filterBar.pipe';
 import { ok } from 'assert';
+import { from } from 'rxjs';
 
 
 @Component({
@@ -29,11 +31,14 @@ export class MainComponent implements OnInit {
     ];
 
     startedcontests:   Contest[];
-    contests:          Contest[];
+    contests:          Contest[]=[];
     aab:          Contest[];
     wantedcontests:    Contest[];
     user:           User;
     nowDate:        Date;
+    aaaa:         Date;
+    bbbb:         Date;
+    selectedTime: string = "today";
     smallWidth = false;
 
     constructor(
@@ -83,7 +88,7 @@ export class MainComponent implements OnInit {
     ngOnInit() {
 
 
-      this.aab = [
+     /* this.aab = [
         {
           name                    : "String",
 
@@ -150,13 +155,84 @@ export class MainComponent implements OnInit {
                   },
               }
           }],
-        }
-      ];
+        },
+        {
+          name                    : "string2",
+
+          type                    : "String",
+
+          prize                    : {
+              coin                 :"String",
+              score                :"String",
+          },
+
+          roundsInfo                : [{
+              tags                : [{title: 'name', persianTitle: 'sss' , _id: '1223' }],
+              level                : 55,
+              start                :new Date(),
+              end                    :new Date(),
+          }],
+
+          start                    : {
+              time                : new Date("2019-05-01T17:01:04.753Z"),
+              constants            : {
+                  min                : 55,
+                  max                : 55,
+              }
+          },
+
+          end                        : {
+              time                : new Date("2019-05-02T17:15:04.753Z"),
+              constants            : {
+                  min                : 55,
+                  max                : 55,
+              }
+          },
+
+          join                    : {
+              time                : new Date(),
+              level                : {
+                  min                : 55,
+                  max                : 55,
+              },
+              score                : {
+                  min                : 55,
+                  max                : 55,
+              },
+              payment                : {
+                  coin            : 55,
+              }
+          },
+
+          availability            : {
+              time                : new Date(),
+          },
+
+          generation                : {
+              time                : new Date(),
+          },
+
+          contestans                : [this.user],
+
+          rounds                    : [{
+              question            : [{ }], // should refer to question model
+              contestansts        : {
+                  username        : {
+                      answer        :"String",
+                  },
+              }
+          }],
+        },
+
+      ];*/
 
 
         this.getProfile();
-        this.contests = (this.aab);
-        //this.contestFind(true , true);
+        //this.contests = this.contests.concat(this.aab[0]);
+        //this.contests = this.contests.concat(this.aab[1]);
+        //this.aaaa = new Date(this.contests[0].start.time.getFullYear(), this.contests[0].start.time.getMonth(), this.contests[0].start.time.getDate());
+       // this.aaaa = new Date(this.nowDate.getFullYear(), this.nowDate.getMonth(), this.nowDate.getDate());
+        this.contestFind(false , {});
         //this.timeToStartTimer();
     }
 
@@ -224,15 +300,14 @@ export class MainComponent implements OnInit {
         });
     }
 
-    /*contestFind(compact: boolean, condition: any): void{
-      this.ContestService.contestFind(compact = true, condition).subscribe((body) => {
+    contestFind(compact: boolean, condition: any): void{
+      this.ContestService.contestFind(compact, condition).subscribe((body) => {
         if(body.ok){
-          this.contests = (body.contests);
-          this.contests = (this.aab);
+          this.contests.concat(body.contests);
         }
     });
 
-  }*/
+  }
 
 
     /*timeToStartTimer(): void {

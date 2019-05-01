@@ -23,6 +23,7 @@ import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { Contest } from './_models/contest';
 import { ContestViewComponent } from './contest-view/contest-view.component';
+import { FilterBarPipeTime } from './main/filterBar.pipe';
 
 
 
@@ -92,6 +93,7 @@ import { MatButtonModule,
     ActivationComponent,
     ProfileComponent,
     ContestViewComponent,
+    FilterBarPipeTime,
   ],
   imports: [
     HttpClientModule,
@@ -164,6 +166,7 @@ import { MatButtonModule,
   providers: [],
   bootstrap: [AppComponent],
   exports: [
+    FilterBarPipeTime,
     A11yModule,
     CdkStepperModule,
     CdkTableModule,
