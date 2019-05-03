@@ -34,6 +34,8 @@ export class Contest {
       }
   };
 
+  level                   : Number;
+
   join                    : {
       time                : Date;
       level                : {

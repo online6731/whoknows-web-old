@@ -43,21 +43,36 @@
     </div>
 
 
-    <div id = "filterBar" style="margin-top: 20px; transform: scale(2);">
-        <button (click)="changeFilter('today')">
+    <div id = "filterBarTime" style="margin-top: 20px; transform: scale(2);">
+        <button (click)="changeTimeFilter('today')">
           today
         </button>
-        <button (click)="changeFilter('thisWeek')">
-            this week
-          </button>
-      </div>
+        <button (click)="changeTimeFilter('thisWeek')">
+          this week
+        </button>
+        <button (click)="changeTimeFilter('all')">
+          همه
+        </button>
+    </div>
+
+    <div id = "filterBarLevel" style="margin-top: 20px; transform: scale(2);">
+      <button style="background-color:chartreuse;" (click)="changeLevelFilter('5')">
+        5
+      </button>
+      <button style="background-color:chartreuse;" (click)="changeLevelFilter('7')">
+        7
+      </button>
+      <button style="background-color:chartreuse;" (click)="changeLevelFilter('all')">
+        همه
+      </button>
+    </div>
 
 
 
 
     <mat-list class="contestsList big">
 
-        <mat-list-item class="listItem" *ngFor="let contest of (contests | time: selectedTime)" >
+        <mat-list-item class="listItem" *ngFor="let contest of (contests | time: selectedTime | level: selectedLevel)" >
 
             <div class="listItemDiv">
 
@@ -98,7 +113,7 @@
 
     <mat-list class="contestsList small">
 
-        <mat-list-item class="listItem" *ngFor="let contest of (contests | time: selectedTime)">
+        <mat-list-item class="listItem" *ngFor="let contest of (contests | time: selectedTime | level: selectedLevel)">
 
             <div class="listItemDiv">
 

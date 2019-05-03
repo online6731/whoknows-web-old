@@ -52,6 +52,8 @@ export class ContestViewComponent implements OnInit {
         }
     },
 
+    level                   : 5,
+
     join                    : {
         time                :new Date(),
         level                : {

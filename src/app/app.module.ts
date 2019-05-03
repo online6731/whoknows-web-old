@@ -24,6 +24,7 @@ import {map, startWith} from 'rxjs/operators';
 import { Contest } from './_models/contest';
 import { ContestViewComponent } from './contest-view/contest-view.component';
 import { FilterBarPipeTime } from './main/filterBar.pipe';
+import { FilterBarPipeLevel } from './main/filterBar.pipe';
 
 
 
@@ -94,6 +95,7 @@ import { MatButtonModule,
     ProfileComponent,
     ContestViewComponent,
     FilterBarPipeTime,
+    FilterBarPipeLevel,
   ],
   imports: [
     HttpClientModule,
@@ -167,6 +169,7 @@ import { MatButtonModule,
   bootstrap: [AppComponent],
   exports: [
     FilterBarPipeTime,
+    FilterBarPipeLevel,
     A11yModule,
     CdkStepperModule,
     CdkTableModule,

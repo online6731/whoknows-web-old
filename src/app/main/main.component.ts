@@ -38,7 +38,8 @@ export class MainComponent implements OnInit {
     nowDate:        Date;
     aaaa:         Date;
     bbbb:         Date;
-    selectedTime: string = "today";
+    selectedTime: String = "today";
+    selectedLevel: String = "all";
     smallWidth = false;
 
     constructor(
@@ -106,7 +107,7 @@ export class MainComponent implements OnInit {
           }],
 
           start                    : {
-              time                : new Date("Wed May 02 2019 23:59:59 GMT+0430 (Iran Daylight Time)"),
+              time                : new Date("Wed May 03 2019 23:58:59 GMT+0430 (Iran Daylight Time)"),
               constants            : {
                   min                : 55,
                   max                : 55,
@@ -114,12 +115,14 @@ export class MainComponent implements OnInit {
           },
 
           end                        : {
-              time                : new Date("Wed May 03 2019 23:01:04 GMT+0430 (Iran Daylight Time)"),
+              time                : new Date("Wed May 03 2019 23:59:59 GMT+0430 (Iran Daylight Time)"),
               constants            : {
                   min                : 55,
                   max                : 55,
               }
           },
+
+          level                   : 5,
 
           join                    : {
               time                : new Date(),
@@ -173,7 +176,7 @@ export class MainComponent implements OnInit {
           }],
 
           start                    : {
-              time                : new Date("2019-05-01T19:01:04.753Z"),
+              time                : new Date("Wed May 04 2019 23:58:59 GMT+0430 (Iran Daylight Time)"),
               constants            : {
                   min                : 55,
                   max                : 55,
@@ -181,12 +184,14 @@ export class MainComponent implements OnInit {
           },
 
           end                        : {
-              time                : new Date("2019-05-02T17:15:04.753Z"),
+              time                : new Date("Wed May 04 2019 23:59:59 GMT+0430 (Iran Daylight Time)"),
               constants            : {
                   min                : 55,
                   max                : 55,
               }
           },
+
+          level                   : 7,
 
           join                    : {
               time                : new Date(),
@@ -270,8 +275,11 @@ export class MainComponent implements OnInit {
         this.router.navigate([`/contest/${id}/view`]);
     }
 
-    changeFilter(filter: string){
+    changeTimeFilter(filter: string){
       this.selectedTime = filter;
+    }
+    changeLevelFilter(filter: string){
+      this.selectedLevel = filter;
     }
 
     /*watchJoin(id: string): void {
