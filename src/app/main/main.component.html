@@ -44,18 +44,20 @@
 
 
     <div id = "filterBarTime" style="margin-top: 20px; transform: scale(2);">
-        <button (click)="changeTimeFilter('today')">
-          today
-        </button>
-        <button (click)="changeTimeFilter('thisWeek')">
-          this week
-        </button>
-        <button (click)="changeTimeFilter('all')">
-          همه
-        </button>
+      <label style="background-color:yellow;">time</label>
+      <button (click)="changeTimeFilter('today')">
+        today
+      </button>
+      <button (click)="changeTimeFilter('thisWeek')">
+        this week
+      </button>
+      <button (click)="changeTimeFilter('all')">
+        همه
+      </button>
     </div>
 
     <div id = "filterBarLevel" style="margin-top: 20px; transform: scale(2);">
+      <label style="background-color:yellow;">level</label>
       <button style="background-color:chartreuse;" (click)="changeLevelFilter('5')">
         5
       </button>
