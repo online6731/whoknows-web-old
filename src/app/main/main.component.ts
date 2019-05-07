@@ -39,6 +39,8 @@ export class MainComponent implements OnInit {
     aaaa:         Date;
     bbbb:         Date;
     selectedTime: String = "today";
+    joinableFilter : Boolean = false;
+    joinedFilter : Boolean = false;
     selectedLevel: String = "all";
     smallWidth = false;
 
@@ -107,7 +109,7 @@ export class MainComponent implements OnInit {
           }],
 
           start                    : {
-              time                : new Date("Wed May 03 2019 23:58:59 GMT+0430 (Iran Daylight Time)"),
+              time                : new Date("Wed May 07 2019 23:58:59 GMT+0430 (Iran Daylight Time)"),
               constants            : {
                   min                : 55,
                   max                : 55,
@@ -115,7 +117,7 @@ export class MainComponent implements OnInit {
           },
 
           end                        : {
-              time                : new Date("Wed May 03 2019 23:59:59 GMT+0430 (Iran Daylight Time)"),
+              time                : new Date("Wed May 07 2019 23:59:59 GMT+0430 (Iran Daylight Time)"),
               constants            : {
                   min                : 55,
                   max                : 55,
@@ -125,10 +127,10 @@ export class MainComponent implements OnInit {
           level                   : 5,
 
           join                    : {
-              time                : new Date(),
+              time                : new Date("Wed May 07 2019 23:57:59 GMT+0430 (Iran Daylight Time)"),
               level                : {
-                  min                : 55,
-                  max                : 55,
+                  min                : 1,
+                  max                : 5,
               },
               score                : {
                   min                : 55,
@@ -147,7 +149,19 @@ export class MainComponent implements OnInit {
               time                : new Date(),
           },
 
-          contestans                : [this.user],
+          contestans                : [{
+            bio : "maybe on another planet",
+            coin		: 999999,
+            followers : [],
+            following : [],
+            instagram : "mhdizmn",
+            level : 4,
+            messages: [],
+            picture : "ssssssssssssssssss",
+            score: 5000,
+            username: "mhdizmn",
+            _id: "ssssss",
+            }],
 
           rounds                    : [{
               question            : [{ }], // should refer to question model
@@ -176,7 +190,7 @@ export class MainComponent implements OnInit {
           }],
 
           start                    : {
-              time                : new Date("Wed May 04 2019 23:58:59 GMT+0430 (Iran Daylight Time)"),
+              time                : new Date("Wed May 07 2019 23:58:59 GMT+0430 (Iran Daylight Time)"),
               constants            : {
                   min                : 55,
                   max                : 55,
@@ -184,7 +198,7 @@ export class MainComponent implements OnInit {
           },
 
           end                        : {
-              time                : new Date("Wed May 04 2019 23:59:59 GMT+0430 (Iran Daylight Time)"),
+              time                : new Date("Wed May 07 2019 23:59:59 GMT+0430 (Iran Daylight Time)"),
               constants            : {
                   min                : 55,
                   max                : 55,
@@ -194,10 +208,10 @@ export class MainComponent implements OnInit {
           level                   : 7,
 
           join                    : {
-              time                : new Date(),
+              time                : new Date("Wed May 07 2019 23:57:59 GMT+0430 (Iran Daylight Time)"),
               level                : {
-                  min                : 55,
-                  max                : 55,
+                  min                : 0,
+                  max                : 10,
               },
               score                : {
                   min                : 55,
@@ -216,7 +230,19 @@ export class MainComponent implements OnInit {
               time                : new Date(),
           },
 
-          contestans                : [this.user],
+          contestans                : [{
+            bio : "maybe on another planet2",
+            coin		: 999999,
+            followers : [],
+            following : [],
+            instagram : "mhdizmn2",
+            level : 4,
+            messages: [],
+            picture : "ssssssssssssssssss",
+            score: 5000,
+            username: "mhdizmn2",
+            _id: "ssssss2",
+            }],
 
           rounds                    : [{
               question            : [{ }], // should refer to question model
@@ -281,6 +307,12 @@ export class MainComponent implements OnInit {
     changeLevelFilter(filter: string){
       this.selectedLevel = filter;
     }
+    changeJoinableFilter(){
+      this.joinableFilter = !this.joinableFilter;
+    }
+    changeJoinedFilter(){
+      this.joinedFilter = !this.joinedFilter;
+    }
 
     /*watchJoin(id: string): void {
         this.http.post<contestJoinResponse>('${localStorage.getItem("server")}/contest/list', {}).subscribe(data => {
@@ -304,12 +336,14 @@ export class MainComponent implements OnInit {
     getProfile(): void {
         this.MeService.getProfile().subscribe((profileResponse) => {
             if (profileResponse.ok) {
+                localStorage.setItem("profile", JSON.stringify(profileResponse.profile));
                 this.user = profileResponse.profile;
             } else {
 
             }
         });
     }
+
 
     /*contestFind(compact: boolean, condition: any): void{
       this.ContestService.contestFind(compact, condition).subscribe((body) => {

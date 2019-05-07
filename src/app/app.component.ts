@@ -10,6 +10,6 @@ export class AppComponent {
 
   ngOnInit() {
     localStorage.setItem("server", "http://whoknows.ir:30000");
-    
+
   }
 }

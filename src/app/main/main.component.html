@@ -69,12 +69,24 @@
       </button>
     </div>
 
+    <div id = "filterBarJoinable" style="margin-top: 20px; transform: scale(2);">
+      <button style="background-color:blanchedalmond;" (click)="changeJoinableFilter()">
+        قابل ثبت نام
+      </button>
+    </div>
+
+    <div id = "filterBarJoined" style="margin-top: 20px; transform: scale(2);">
+      <button style="background-color:blue;" (click)="changeJoinedFilter()">
+        ثبت نام کرده
+      </button>
+    </div>
+
 
 
 
     <mat-list class="contestsList big">
 
-        <mat-list-item class="listItem" *ngFor="let contest of (contests | time: selectedTime | level: selectedLevel)" >
+        <mat-list-item class="listItem" *ngFor="let contest of (contests | time: selectedTime | level: selectedLevel | joinable: user : joinableFilter | joined: user : joinedFilter)" >
 
             <div class="listItemDiv">
 
@@ -115,7 +127,7 @@
 
     <mat-list class="contestsList small">
 
-        <mat-list-item class="listItem" *ngFor="let contest of (contests | time: selectedTime | level: selectedLevel)">
+        <mat-list-item class="listItem" *ngFor="let contest of (contests | time: selectedTime | joinable: user : joinableFilter | joined: user : joinedFilter)">
 
             <div class="listItemDiv">
 

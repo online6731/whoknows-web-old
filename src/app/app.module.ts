@@ -25,6 +25,8 @@ import { Contest } from './_models/contest';
 import { ContestViewComponent } from './contest-view/contest-view.component';
 import { FilterBarPipeTime } from './main/filterBar.pipe';
 import { FilterBarPipeLevel } from './main/filterBar.pipe';
+import { FilterBarPipeJoinable } from './main/filterBar.pipe';
+import { FilterBarPipeJoined } from './main/filterBar.pipe';
 
 
 
@@ -95,6 +97,8 @@ import { MatButtonModule,
     ProfileComponent,
     ContestViewComponent,
     FilterBarPipeTime,
+    FilterBarPipeJoinable,
+    FilterBarPipeJoined,
     FilterBarPipeLevel,
   ],
   imports: [
@@ -170,6 +174,8 @@ import { MatButtonModule,
   exports: [
     FilterBarPipeTime,
     FilterBarPipeLevel,
+    FilterBarPipeJoined,
+    FilterBarPipeJoinable,
     A11yModule,
     CdkStepperModule,
     CdkTableModule,
