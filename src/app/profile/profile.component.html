@@ -4,7 +4,6 @@
 
 
 
-
         <div style="position:absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto; font-size:35px; height: 50px; width:250px; text-align:center; color:rgb(216, 216, 216); "> کی میدونه؟ </div>
 
         <button mat-button [matMenuTriggerFor]="menu" style="position:absolute; right:5px; top:20px;  text-align:right; color:rgb(11, 66, 99);"> <mat-icon id="list-icon"> list </mat-icon></button>
@@ -31,15 +30,50 @@
     <div class="div">
       <div class="main" id="main">
     <div style="align-items: center;">
-    <div class="circle1"> <img src="assets/images/man 2.png" style="width: 200px; height: 220px; margin-top: 2%;  "> </div>
-    <div class="oval1" style="margin-top: 2%; margin-left: 6%;"> <div style=" position: static;  font-size:20px;  text-align:center; color:black; margin-top:8%;  ">  {{this.user.username}} </div></div>
-    <div style="margin-left:-16%; margin-top:3%;"><div class="oval2" >  <img src="assets/images/LEVEL ICON 1.png" style="width: 25px; height: 25px;margin-top:12%; top:-400%; margin-left:-150%;  "><div class="data" style=" position: static; margin-top:-65%; font-size: 15px;">  {{this.user.level}}</div></div></div>
-   <div style="margin-left:24%; margin-top:-13%;" ><div class="oval2" > <img src="assets/images/Coin icon 3.png" style="width: 25px; height: 25px; margin-top:12%; margin-left:-150%; " ><div class="data" style=" position: static; margin-top:-65%; font-size: 15px;">{{this.user.coin}}</div></div></div>
-   <div style="margin-left:64%; margin-top:-13%;"><div class="oval2" > <img src="assets/images/following 2.png" style="width: 25px; height: 25px; margin-top:12%; margin-left:-150%; " ><div class="data"style=" position: static; margin-top:-65%; font-size: 15px;">{{this.user.following.length}}</div></div></div>
-   <div style="margin-left:104%; margin-top:-13%;  "><div class="oval2" > <img src="assets/images/follower 2.png" style="width: 25px; height: 25px; margin-top:12%; margin-left:-150%;  " ><div class="data"style=" position: static; margin-top:-65%; font-size: 15px; ">{{this.user.followers.length}}</div></div></div>
+    <div [hidden]="showEditPicture" class="circle1" (click)="editPicture()"> <img src="assets/images/man 2.png" style="cursor: pointer; width: 200px; height: 220px; margin-top: 2%;  "> </div>
+    <div [hidden]="!showEditPicture" style="width: 250px; height: 350px; margin-top: 20%;">
+
+      <div class="circle1"> <img src="assets/images/man 2.png" style="width: 200px; height: 220px; margin-top: 2%;  "> </div>
+
+      <div style="margin-top: 5%;">
+
+
+        <button>
+          <label for="upload">
+            <span aria-hidden="true">انتخاب</span>
+            <input type="file" id="upload" (change) = "selectPic($event)" style="display:none;">
+          </label>
+        </button>
+
+
+
+        <button style="margin-right: 50%;" (click)="confirmPic()">
+            تایید
+        </button>
+
+
+        <button  [disabled]="!selectedPic" style="margin-right: -60%;" (click)="removePic()">
+          حذف
+        </button>
+
+
+
+        <div class="error-field">
+            {{ problem }}
+        </div>
+
+      </div>
+    </div>
+
+
+    <div [hidden]="showEditPicture" class="oval1" style="margin-top: 2%; margin-left: 6%;"> <div style=" position: static;  font-size:20px;  text-align:center; color:black; margin-top:8%;  ">  {{this.user.username}} </div></div>
+    <div [hidden]="showEditPicture" style="margin-left:-16%; margin-top:3%;"><div class="oval2" >  <img src="assets/images/LEVEL ICON 1.png" style="width: 25px; height: 25px;margin-top:12%; top:-400%; margin-left:-150%;  "><div class="data" style=" position: static; margin-top:-65%; font-size: 15px;">  {{this.user.level}}</div></div></div>
+   <div [hidden]="showEditPicture" style="margin-left:24%; margin-top:-13%;" ><div class="oval2" > <img src="assets/images/Coin icon 3.png" style="width: 25px; height: 25px; margin-top:12%; margin-left:-150%; " ><div class="data" style=" position: static; margin-top:-65%; font-size: 15px;">{{this.user.coin}}</div></div></div>
+   <div [hidden]="showEditPicture" style="margin-left:64%; margin-top:-13%;"><div class="oval2" > <img src="assets/images/following 2.png" style="width: 25px; height: 25px; margin-top:12%; margin-left:-150%; " ><div class="data"style=" position: static; margin-top:-65%; font-size: 15px;">{{this.user.following.length}}</div></div></div>
+   <div [hidden]="showEditPicture" style="margin-left:104%; margin-top:-13%;  "><div class="oval2" > <img src="assets/images/follower 2.png" style="width: 25px; height: 25px; margin-top:12%; margin-left:-150%;  " ><div class="data"style=" position: static; margin-top:-65%; font-size: 15px; ">{{this.user.followers.length}}</div></div></div>
     <mat-icon>setting</mat-icon>
 
-      <form class="example-form">
+      <form [hidden]="showEditPicture" class="example-form">
         <mat-form-field class="example-full-width">
           <input matInput placeholder="درباره من" value={{this.user.bio}}>
         </mat-form-field>
