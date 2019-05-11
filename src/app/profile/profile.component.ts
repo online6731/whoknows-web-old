@@ -18,7 +18,6 @@ export class ProfileComponent implements OnInit {
 
     arrayColors = [];
 
-
     user: User;
 
     constructor(
