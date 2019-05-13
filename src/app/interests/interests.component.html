@@ -14,7 +14,7 @@
 			*ngFor="let tag of interests">
 			{{tag.persianTitle}}
 			<mat-icon id = "{{tag.title}}" matChipRemove (click)="removeInterest($event)">cancel </mat-icon>
-			
+
 		</mat-chip>
 		<input
 			placeholder="جست و جو"
@@ -51,8 +51,8 @@
 					<img src="{{tags.picture}}" style="width: 100px; height: 100px; margin-left: 0px; ">
 				</div>
 	-->
-				
-					<img id="{{tag.title}}" src="http://whoknows.ir:30000/static/app/picture/tag/{{tag.title}}.png" (click)="addInterest($event)" style="position:absolute; cursor :pointer; width: 8vw; height:8vw; margin: 4px; border-radius: 50%; z-index: 2; left:0vw;">
+
+					<img id="{{tag.title}}" src="{{server}}/static/app/picture/tag/{{tag.title}}.png" (click)="addInterest($event)" style="position:absolute; cursor :pointer; width: 8vw; height:8vw; margin: 4px; border-radius: 50%; z-index: 2; left:0vw;">
 					<img id="{{tag.title}}" *ngIf="clicked(tag.title)" src="assets/images/selectedicon2.png" (click)="removeInterest($event)" style="position:absolute; cursor :pointer; width: 8vw; height:8vw; margin: 4px; border-radius: 50%; z-index: 3; left: 0vw; top:0vw;">
 
 

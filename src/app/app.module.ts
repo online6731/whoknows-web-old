@@ -108,8 +108,8 @@ import { MatButtonModule,
         tokenGetter: function () {
           return localStorage.getItem('access_token');
         },
-        whitelistedDomains: ['whoknows.ir:30000'],
-        blacklistedRoutes: ['whoknows.ir:30000/login/', 'whoknows.ir:30000/signup/'],
+        whitelistedDomains: [`${localStorage.getItem("server")}`.replace("https://", "")],
+        blacklistedRoutes: [`${localStorage.getItem("server")}/login/`.replace("https://", ""), `${localStorage.getItem('server')}/signup/`.replace("https://", "")],
         headerName: 'authorization',
         authScheme: ''
       }

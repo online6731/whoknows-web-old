@@ -7,9 +7,7 @@
 })
 export class AppComponent {
   title = 'guessit-web';
-
   ngOnInit() {
-    localStorage.setItem("server", "http://whoknows.ir:30000");
-
-  }
+    localStorage.setItem("server", "https://guessit-server.liara.run");
+  console.log(localStorage.getItem("server"));}
 }
