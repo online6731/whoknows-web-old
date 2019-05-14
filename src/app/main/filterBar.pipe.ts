@@ -64,7 +64,7 @@ export class FilterBarPipeJoinable implements PipeTransform {
     if (user && user.level) this.userLevel = user.level;
     if (!user) this.userLevel = 0;
     console.log(this.userLevel);
-    if(joinableFilter) return contests.filter(Contest => ((Contest.join.time.getSeconds()>this.date1.getSeconds()) && (Contest.join.level.min <= this.userLevel) && (Contest.join.level.max >= this.userLevel)));
+    if(joinableFilter) return contests.filter(Contest => ((Contest.join.time.getTime()>this.date1.getTime()) && (Contest.join.level.min <= this.userLevel) && (Contest.join.level.max >= this.userLevel) && (!(Contest.contestans.map(a => a.username).includes(user.username)))));
     else return contests;
   }
 }
