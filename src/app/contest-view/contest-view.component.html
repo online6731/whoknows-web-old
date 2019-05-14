@@ -101,10 +101,17 @@
                       </div>
                     </div>
 
+                    <div class="error-field">
+                      {{problem}}
+                    </div>
+
 
                     <div class="submit-field " >
-                        <button mat-button >
+                        <button mat-button *ngIf="joinCondition" [disabled]="disabledJoinCondition">
                           عضویت
+                        </button>
+                        <button mat-button *ngIf="enterCondition" [disabled]="disabledEnterCondition">
+                          ورود
                         </button>
                       </div>
 

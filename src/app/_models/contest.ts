@@ -18,6 +18,8 @@ export class Contest {
       end                    :Date;
   }[];
 
+  _id                       : String;
+
   start                    : {
       time                : Date;
       constants            : {

@@ -1,5 +1,5 @@
-
 export class ContestJoinResponse {
-	ok:         string;
-    response:   string;
+
+  ok:         String;
+  problem:    String;
 }

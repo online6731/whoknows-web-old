@@ -72,7 +72,6 @@ export class FilterBarPipeJoinable implements PipeTransform {
 
 @Pipe({ name: 'joined' })
 export class FilterBarPipeJoined implements PipeTransform {
-  userLevel : Number;
   transform(contests: Contest[] , user : User , joinedFilter : Boolean) {
     if(user){
       console.table(user);
