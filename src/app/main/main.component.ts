@@ -108,6 +108,8 @@ export class MainComponent implements OnInit {
               end                    :new Date(),
           }],
 
+          _id                       : "mamade khar",
+
           start                    : {
               time                : new Date("Wed May 07 2019 23:58:59 GMT+0430 (Iran Daylight Time)"),
               constants            : {
@@ -188,6 +190,9 @@ export class MainComponent implements OnInit {
               start                :new Date(),
               end                    :new Date(),
           }],
+
+
+          _id                       : "mamade gav",
 
           start                    : {
               time                : new Date("Wed May 07 2019 23:58:59 GMT+0430 (Iran Daylight Time)"),
@@ -334,10 +339,10 @@ export class MainComponent implements OnInit {
     }*/
 
     getProfile(): void {
-        this.MeService.getProfile().subscribe((profileResponse) => {
-            if (profileResponse.ok) {
-                localStorage.setItem("profile", JSON.stringify(profileResponse.profile));
-                this.user = profileResponse.profile;
+        this.MeService.getProfile().subscribe((body) => {
+            if (body.ok) {
+                localStorage.setItem("profile", JSON.stringify(body.profile));
+                this.user = body.profile;
             } else {
 
             }

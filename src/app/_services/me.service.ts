@@ -27,7 +27,7 @@ export class MeService {
 		}
 	resendCode(): Observable<ResendCodeResponse>{
 				return this.http.post<ResendCodeResponse>(
-					`${localStorage.getItem("serve")}/me/resendCode`, {}
+					`${localStorage.getItem("server")}/me/resendCode`, {}
 				);
 	}
 

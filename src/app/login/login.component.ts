@@ -23,7 +23,11 @@ export class LoginComponent implements OnInit {
 				private LoginService: LoginService
 		) {}
 
-		ngOnInit() { }
+    ngOnInit() { }
+
+    changeServer(newServer){
+      localStorage.setItem("server" , newServer);
+    }
 
 		login(username: string, password: string): void {
 			this.problem="";

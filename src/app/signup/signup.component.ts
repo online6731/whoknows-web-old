@@ -57,6 +57,10 @@ export class SignupComponent implements OnInit {
         setTimeout(() => {this.show = false;}, 500);
     }
 
+    changeServer(newServer){
+      localStorage.setItem("server" , newServer);
+    }
+
     signupMember(username: string, password: string, mobileNumber: string): void {
         this.problem = "";
         if (!this.agree) {

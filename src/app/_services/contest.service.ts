@@ -22,7 +22,8 @@ import { SendAnswerResponse }
 import { ViewContestResponse }
 	from '../_models/viewContestResponse';
 
-import { JoinContestResponse } from '../_models/joinContestResponse';
+import { ContestJoinResponse } from '../_models/contestJoinResponse';
+
 import { ContestFindResponse } from '../_models/contestFindResponse';
 
 import { ContestNewResponse } from '../_models/contestNewResponse';
@@ -37,16 +38,16 @@ export class ContestService {
 	) {}
 
 
-	joinContest(contestID: string, teamID: string): Observable<JoinContestResponse>{
-    return this.http.post<JoinContestResponse>(`${localStorage.getItem("server")}/contest/${contestID}/team/${teamID}/join`, {});
-  }
-
-
-
   contestFind(compact: boolean, condition: any): Observable<ContestFindResponse>{
 
     return this.http.post<ContestFindResponse>(`${localStorage.getItem("server")}/contest/find`, {compact: compact, condition: condition});
   }
+
+  contestJoin(_id: String): Observable<ContestJoinResponse>{
+
+    return this.http.post<ContestJoinResponse>(`${localStorage.getItem("server")}/contest/join`, {contest: _id});
+  }
+
 
 /*	viewContest(contestID: string): Observable<ViewContestResponse>{
 		return this.http.post<ViewContestResponse>(`${localStorage.getItem("server")}/contest/${contestID}/view`, {});

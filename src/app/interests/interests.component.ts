@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { RouterModule,
          Router } from '@angular/router';
-         
+
 import { MatGridListModule ,
          MatButtonToggleModule } from '@angular/material';
 
@@ -52,7 +52,7 @@ import { Tag } from '../_models/tag';
       transition(':leave',
         animate(1500, style({opacity: 0})))
     ]),
-    
+
 
     trigger('flyInOut', [
       state('in', style({transform: 'translateX(0)'})),
@@ -82,6 +82,7 @@ export class InterestsComponent implements OnInit {
   separatorKeysCodes: number[] = [ENTER, COMMA];
   tagCtrl = new FormControl();
   filteredTags: Tag[];
+  server : string = localStorage.getItem("server").replace("https://", "");
 
   @ViewChild('interestInput') interestsInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
@@ -113,7 +114,7 @@ export class InterestsComponent implements OnInit {
       (body) => {
         if (body.ok){
            this.tags = body.tags;
-           this.filteredTags = this.tags;        
+           this.filteredTags = this.tags;
         }
         else {
           console.error("ok is false");
@@ -121,7 +122,7 @@ export class InterestsComponent implements OnInit {
       }
     );
   }
-  
+
   clicked(_title) :boolean{
     console.log("clicked" , _title);
     for (var tag of this.tags){
@@ -150,7 +151,7 @@ export class InterestsComponent implements OnInit {
       else {
         this.router.navigate(['/interests']);
       }
-      
+
 		});
   }
 
@@ -167,7 +168,7 @@ export class InterestsComponent implements OnInit {
 
       event.target.state = 'active';
     }
-  	
+
   }
   removeInterest(event) :void{
     for (var tag of this.tags){
@@ -177,8 +178,8 @@ export class InterestsComponent implements OnInit {
       }
     }
   	if (this.interests.map(interest => interest.title).includes(event.target.id)){
-  		
-  		
+
+
   		const index: number = this.interests.map(interest => interest.title).indexOf(event.target.id);
 	    if (index !== -1) {
           this.interests.splice(index, 1);
@@ -213,7 +214,7 @@ export class InterestsComponent implements OnInit {
 
 
   _filter(event){
-    
+
     this.filteredTags = this.tags.filter(tag => tag.persianTitle.indexOf(event.target.value) === 0);
   }
 }

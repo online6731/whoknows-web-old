@@ -1,6 +1,9 @@
 <div id="body">
 	<div id = "login" class="main">
 		<form action="">
+        <input #server type="text" style="color:black;">
+        <button (click)="changeServer(server.value)" style="color:black;">server</button>
+
 			<div class="title">کی میدونه؟</div>
 
 			<mat-form-field>

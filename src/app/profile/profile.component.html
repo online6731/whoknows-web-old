@@ -30,10 +30,10 @@
     <div class="div">
       <div class="main" id="main">
     <div style="align-items: center;">
-    <div [hidden]="showEditPicture" class="circle1" (click)="editPicture()"> <img src="assets/images/man 2.png" style="cursor: pointer; width: 200px; height: 220px; margin-top: 2%;  "> </div>
+    <div [hidden]="showEditPicture" class="circle1" (click)="editPicture()"> <img src="{{editImageSrc}}" style="cursor: pointer; width: 200px; height: 220px; margin-top: 2%;  "> </div>
     <div [hidden]="!showEditPicture" style="width: 250px; height: 350px; margin-top: 20%;">
 
-      <div class="circle1"> <img src="assets/images/man 2.png" style="width: 200px; height: 220px; margin-top: 2%;  "> </div>
+      <div [hidden]="!showEditPicture" class="circle1"> <img src="{{editImageSrc}}" style="width: 200px; height: 220px; margin-top: 2%;  "> </div>
 
       <div style="margin-top: 5%;">
 
@@ -52,7 +52,7 @@
         </button>
 
 
-        <button  [disabled]="!selectedPic" style="margin-right: -60%;" (click)="removePic()">
+        <button  [disabled]="!picture" style="margin-right: -60%;" (click)="removePic()">
           حذف
         </button>
 

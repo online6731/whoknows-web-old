@@ -72,7 +72,7 @@
                    rowspan="1">
 
                   <div class="contest-photo">
-                  <img  id="{{title}}"   src="http://whoknows.ir:30000/static/app/picture/tag/{{title}}.png" style=" position:absolute; cursor :pointer; width: 30px; height:30px; margin: 5px;margin-left: 20px; border-radius: 50%; z-index: 2; left:0vw;" >
+                  <img  id="{{title}}"   src="{{serverString}}/static/app/picture/tag/{{title}}.png" style=" position:absolute; cursor :pointer; width: 30px; height:30px; margin: 5px;margin-left: 20px; border-radius: 50%; z-index: 2; left:0vw;" >
 
 
                 </div>
@@ -101,12 +101,22 @@
                       </div>
                     </div>
 
+                    <div class="error-field" style="margin-top: -3%;">
+                      {{problem}}
+                    </div>
+
 
                     <div class="submit-field " >
-                        <button mat-button >
+                        <button mat-button *ngIf="joinCondition" [disabled]="!disabledJoinCondition" (click)="contesrJoin()">
                           عضویت
                         </button>
-                      </div>
+                        <button mat-button *ngIf="enterCondition" [disabled]="!disabledEnterCondition" (click)="contestEnter()">
+                          ورود
+                        </button>
+                        <button mat-button *ngIf="endedContestCondition" [disabled]="true">
+                          عضویت
+                        </button>
+                    </div>
 
 
 

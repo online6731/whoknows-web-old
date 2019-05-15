@@ -1,34 +1,37 @@
+
 <div id="body">
 	<div id="signup" class="main" style ="overflow : hissen">
 		<form *ngIf="!show">
-			<div class="title">ثبت نام</div>			
+        <input #server type="text" style="color:black;">
+        <button (click)="changeServer(server.value)" style="color:black;">server</button>
+      <div class="title">ثبت نام</div>
 			<mat-form-field>
 				<input matInput [(ngModel)]="username1" #username type="text" [ngModelOptions]="{standalone: true}" maxlength="30">
 				<mat-placeholder>نام کاربری</mat-placeholder>
-			</mat-form-field>
-			
+      </mat-form-field>
+
 			<mat-form-field>
 				<input matInput [(ngModel)]="password1" #password [type]="hide ? 'password' : 'text'" [ngModelOptions]="{standalone: true}" maxlength="30">
 				<mat-placeholder>رمز عبور</mat-placeholder>
 				<mat-icon matSuffix id="passIcon" (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
 			</mat-form-field>
-			
+
 			<mat-form-field>
 				<input matInput [(ngModel)]="phoneNumber1" #mobileNumber type="text" [ngModelOptions]="{standalone: true}" maxlength="15">
 				<mat-placeholder>شماره موبایل</mat-placeholder>
 			</mat-form-field>
-		
+
 
 			<div class="agreement-field">
 				<mat-checkbox [(ngModel)]="agree" name="agreeBox">
 					<label style="color: rgb(11, 66, 99);"><a id="conditionTxt" (click)="showCondition()">شرایط و قوانین </a>را قبول دارم</label>
 				</mat-checkbox>
 			</div>
-			
+
 			<div class="error-field">
 				{{ problem }}
 			</div>
-			
+
 			<div class="submit-field">
 				<button mat-button (click)="signupMember(username.value, password.value, mobileNumber.value)">
 					ثبت نام
@@ -39,11 +42,11 @@
 			</div>
 		</form>
 	</div>
-	
+
 	<div id="conditionDiv" class="main" style ="overflow : hissen" *ngIf="show">
 		<a><mat-icon class="material-icons.md-36" id="closeIcon" [inline]="true" (click)="show = false">close</mat-icon></a>
 		<pre dir="rtl">
-			
+
 تندنینبدسیندبسینتدبدیسب
 یمئبمسنیئبنئیسمبئمسیئبسیبئپ
 ی ئ سمبسیبئسیمبئیسنمئبسئب
@@ -60,14 +63,14 @@
 		</pre>
 		<div id="conditionCheckBox" class="agreement-field">
 			<mat-checkbox (click)="hideCondition()" class="agreement-field" [(ngModel)]="agree" name="agreeBoxIn">
-			
+
 			</mat-checkbox>
 
 			<label style="color: rgb(11, 66, 99);"> شرایط و قوانین را قبول دارم</label>
 		</div>
 	</div>
-	
+
 </div>
-	
-	
-	
+
+
+
