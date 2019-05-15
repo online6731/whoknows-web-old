@@ -1,10 +1,14 @@
-FROM node:10-alpine
+FROM ubuntu:18.0.4
 
 WORKDIR /app
 
-COPY package*.json .
+COPY package*.json ./
+
+RUN apt install git 
 
 RUN npm install
+
+RUN npm install -g @angular/cli@1.7.1
 
 COPY . .
 
