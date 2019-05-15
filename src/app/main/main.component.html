@@ -86,9 +86,9 @@
 
     <mat-list class="contestsList big">
 
-        <mat-list-item class="listItem" *ngFor="let contest of (contests | time: selectedTime | level: selectedLevel | joinable: user : joinableFilter | joined: user : joinedFilter)" >
+        <mat-list-item class="listItem" *ngFor="let contest of (contests | time: selectedTime | level: selectedLevel | joinable: user : joinableFilter | joined: user : joinedFilter)">
 
-            <div class="listItemDiv">
+            <div id="{{contest._id}}" class="listItemDiv" (click)="openContest($event)">
 
                 <div style="float: left; " class="i">
 
@@ -144,7 +144,7 @@
                 </div>
 
                 <div style="float: right;" class="inListItem">
-                    [{{ ((contest.start.time - nowDate)/1000).toFixed() > 0 ? 'زمان باقی مانده تا شروع بازی : ' + ((contest.start.time - nowDate)/1000).toFixed() + ' ثانیه' : 'started' }}
+                    [{{ ((contest.start.time - nowDate)/1000).toFixed() > 0 ? 'زمان باقی مانده تا شروع بازی : ' + ((contest.start.time - nowDate)/1000).toFixed() + ' ثانیه' : ((contest.start.end - nowDate)/1000).toFixed() > 0 ? 'started' : 'ended' }}
                 </div>
 
 

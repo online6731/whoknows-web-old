@@ -26,6 +26,12 @@ export class ContestViewComponent implements OnInit {
   userLevel : Number = 0;
   date1 : Date = new Date();
   serverString : String = localStorage.getItem("server");
+  vars : String;
+  vars1 : String;
+  vars2 : String;
+  vars3 : String;
+  vars4 : String;
+  vars5 : String;
 
 
 
@@ -36,8 +42,8 @@ export class ContestViewComponent implements OnInit {
   ) {
 
 
-    this.contests =  [
-      {name : 'مسابقه دوره ای 132',
+    this.contests = [
+     {name : 'مسابقه دوره ای 132',
      type  : 'kk',
 
     prize                    : {
@@ -117,25 +123,40 @@ export class ContestViewComponent implements OnInit {
             },
         }
     }]
-    }
-  ];
+    }];
   }
 
 
   ngOnInit() {
+    //this.route.queryParamMap.get('contest')
+    this.vars = window.location.pathname;
     this.user = JSON.parse(localStorage.getItem("profile"));
-       this.contests[0].roundsInfo.forEach((roundInfo)=>{
-       this.tags = this.tags.concat(roundInfo.tags);
-      });
-      this.tagsTitle= this.tags.map(tags => tags.title);
-      const set = new Set(this.tagsTitle);
-      this.tagsTitle = Array.from(set);
-      console.log(this.contests[0].roundsInfo);
-      console.log(this.tagsTitle);
-      this.submitButton();
-      this.endedContestCondition = ((!this.joinCondition) && (!this.enterCondition));
+    this.contestFind(false , {_id : this.vars.replace("%20"," ").substring(this.vars.replace("%20"," ").indexOf("=") +1)});
+    this.contests[0].roundsInfo.forEach((roundInfo)=>{
+      this.tags = this.tags.concat(roundInfo.tags);
+    });
+    this.tagsTitle= this.tags.map(tags => tags.title);
+    const set = new Set(this.tagsTitle);
+    this.tagsTitle = Array.from(set);
+    console.log(this.contests[0].roundsInfo);
+    console.log(this.tagsTitle);
+    this.submitButton();
+    this.endedContestCondition = ((!this.joinCondition) && (!this.enterCondition));
 
 
+
+  }
+
+
+  contestFind(compact: boolean, condition: any): void{
+    this.ContestService.contestFind(compact, condition).subscribe((body) => {
+      if(body.ok){
+        this.contests= this.contests.concat(body.contests);
+        console.table(this.contests[0]);
+      }
+    });
+
+    console.table(this.contests[1]);
 
   }
 
@@ -160,7 +181,29 @@ export class ContestViewComponent implements OnInit {
 
   contestEnter(){
     this.router.navigate(['/contest-play']);
+
   }
+
+
+
+
+
+  getUrlVars() {
+    this.vars = window.location.pathname;
+    //this.vars1 = this.vars.replace("%20"," ");
+    //this.vars2 = this.vars2.substring(this.vars1.indexOf("=") +1);
+    //console.log(this.vars3);
+
+
+this.vars.replace("%20"," ").substring(this.vars.replace("%20"," ").indexOf("=") +1);
+
+
+}
+
+
+
+
+
 
 
 

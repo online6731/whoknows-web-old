@@ -263,11 +263,11 @@ export class MainComponent implements OnInit {
 
 
         this.getProfile();
-        this.contests = this.contests.concat(this.aab[0]);
-        this.contests = this.contests.concat(this.aab[1]);
+       // this.contests = this.contests.concat(this.aab[0]);
+       // this.contests = this.contests.concat(this.aab[1]);
         //this.aaaa = new Date(this.contests[0].start.time.getFullYear(), this.contests[0].start.time.getMonth(), this.contests[0].start.time.getDate());
-       this.aaaa = new Date(this.nowDate.getFullYear(), this.nowDate.getMonth(), this.nowDate.getDate());
-        //this.contestFind(false , {});
+       //this.aaaa = new Date(this.nowDate.getFullYear(), this.nowDate.getMonth(), this.nowDate.getDate());
+        this.contestFind(true , {});
         //this.timeToStartTimer();
     }
 
@@ -302,8 +302,8 @@ export class MainComponent implements OnInit {
         });
     }*/
 
-    opencontest(id: string): void {
-        this.router.navigate([`/contest/${id}/view`]);
+    openContest(event): void {
+      this.router.navigate(['/contest-view',{contest_id : event.target.id}]);
     }
 
     changeTimeFilter(filter: string){
@@ -350,14 +350,14 @@ export class MainComponent implements OnInit {
     }
 
 
-    /*contestFind(compact: boolean, condition: any): void{
+    contestFind(compact: boolean, condition: any): void{
       this.ContestService.contestFind(compact, condition).subscribe((body) => {
         if(body.ok){
-          this.contests.concat(body.contests);
+          this.contests=this.contests.concat(body.contests);
         }
     });
 
-  }*/
+  }
 
 
     /*timeToStartTimer(): void {

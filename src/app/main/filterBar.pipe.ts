@@ -18,7 +18,8 @@ export class FilterBarPipeTime implements PipeTransform {
     return contests.filter(Contest => {
       if(sTime == "today"){
         /*this.date1.getUTCDay */
-        this.date1 = new Date(Contest.start.time.getFullYear(),Contest.start.time.getMonth(),(Contest.start.time.getDate()));
+        console.log(typeof(Contest.start));
+        this.date1 = new Date(new Date(Contest.start.time).getFullYear(),new Date(Contest.start.time).getMonth(),(new Date(Contest.start.time).getDate()));
         this.date2 = new Date(this.date3.getFullYear(),this.date3.getMonth(),this.date3.getDate());
         //console.table({1: , 2: });
         return (this.date1.getTime()==this.date2.getTime());
@@ -64,7 +65,7 @@ export class FilterBarPipeJoinable implements PipeTransform {
     if (user && user.level) this.userLevel = user.level;
     if (!user) this.userLevel = 0;
     console.log(this.userLevel);
-    if(joinableFilter) return contests.filter(Contest => ((Contest.join.time.getTime()>this.date1.getTime()) && (Contest.join.level.min <= this.userLevel) && (Contest.join.level.max >= this.userLevel) && (!(Contest.contestans.map(a => a.username).includes(user.username)))));
+    if(joinableFilter) return contests.filter(Contest => ((new Date(Contest.join.time).getTime()>this.date1.getTime()) && (Contest.join.level.min <= this.userLevel) && (Contest.join.level.max >= this.userLevel) && (!(Contest.contestans.map(a => a.username).includes(user.username)))));
     else return contests;
   }
 }

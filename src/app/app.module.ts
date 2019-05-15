@@ -10,7 +10,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { CdkTableModule } from '@angular/cdk/table';
 import { CdkTreeModule } from '@angular/cdk/tree';
-import { RouterModule , Routes } from '@angular/router';
+import { RouterModule , Routes , ActivatedRouteSnapshot} from '@angular/router';
 import { FormsModule , FormControl ,ReactiveFormsModule} from '@angular/forms';
 import { InterestsComponent } from './interests/interests.component';
 import { ActivationComponent } from './activation/activation.component';
