@@ -23,6 +23,10 @@ import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { Contest } from './_models/contest';
 import { ContestViewComponent } from './contest-view/contest-view.component';
+import { ContestNewComponent } from './contest-new/contest-new.component';
+import { FriendsComponent } from './friends/friends.component';
+import { ShopComponent } from './shop/shop.component';
+
 import { FilterBarPipeTime } from './main/filterBar.pipe';
 import { FilterBarPipeLevel } from './main/filterBar.pipe';
 import { FilterBarPipeJoinable } from './main/filterBar.pipe';
@@ -42,6 +46,11 @@ const appRoutes: Routes = [
 
 
 ];
+
+
+export function jwtTokenGetter() {
+    return localStorage.getItem('access_token');
+}
 
 
 
@@ -100,14 +109,17 @@ import { MatButtonModule,
     FilterBarPipeJoinable,
     FilterBarPipeJoined,
     FilterBarPipeLevel,
+    ContestNewComponent,
+    ContestPlayComponent,
+    FriendsComponent,
+    ShopComponent,
+    StartupComponent
   ],
   imports: [
     HttpClientModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter: function () {
-          return localStorage.getItem('access_token');
-        },
+        tokenGetter: jwtTokenGetter,
         whitelistedDomains: [`${localStorage.getItem("server")}`.replace("https://", "")],
         blacklistedRoutes: [`${localStorage.getItem("server")}/login/`.replace("https://", ""), `${localStorage.getItem('server')}/signup/`.replace("https://", "")],
         headerName: 'authorization',
