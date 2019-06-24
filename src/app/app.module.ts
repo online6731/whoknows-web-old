@@ -18,6 +18,10 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ContestNewComponent } from './contest-new/contest-new.component';
+import { ContestPlayComponent } from './contest-play/contest-play.component';
+import { ShopComponent } from './shop/shop.component';
+import { StartupComponent } from './startup/startup.component';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
@@ -98,6 +102,7 @@ import { MatButtonModule,
     ActivationComponent,
     ProfileComponent,
     ContestViewComponent,
+    ContestNewComponent,
     FilterBarPipeTime,
     FilterBarPipeJoinable,
     FilterBarPipeJoined,
