@@ -30,6 +30,10 @@ import { FilterBarPipeJoined } from './main/filterBar.pipe';
 
 
 
+export function jwtTokenGetter () {
+  return localStorage.getItem('access_token');
+}
+
 const appRoutes: Routes = [
     { path: '',             component: SignupComponent,       canActivate: [] },
     { path: 'login',              component: LoginComponent,        canActivate: [] },
@@ -39,8 +43,6 @@ const appRoutes: Routes = [
     { path: 'activation',             component: ActivationComponent,       canActivate: [] },
     { path: 'profile',             component: ProfileComponent,       canActivate: [] },
     { path: 'contest-view',             component: ContestViewComponent,       canActivate: [] }
-
-
 ];
 
 
@@ -105,9 +107,7 @@ import { MatButtonModule,
     HttpClientModule,
     JwtModule.forRoot({
       config: {
-        tokenGetter: function () {
-          return localStorage.getItem('access_token');
-        },
+        tokenGetter: jwtTokenGetter,
         whitelistedDomains: [`${localStorage.getItem("server")}`.replace("https://", "")],
         blacklistedRoutes: [`${localStorage.getItem("server")}/login/`.replace("https://", ""), `${localStorage.getItem('server')}/signup/`.replace("https://", "")],
         headerName: 'authorization',
