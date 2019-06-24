@@ -21,6 +21,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ContestNewComponent } from './contest-new/contest-new.component';
 import { ContestPlayComponent } from './contest-play/contest-play.component';
 import { ShopComponent } from './shop/shop.component';
+import { FriendsComponent } from './friends/friends.component';
 import { StartupComponent } from './startup/startup.component';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
 import {Observable} from 'rxjs';
@@ -103,6 +104,11 @@ import { MatButtonModule,
     ProfileComponent,
     ContestViewComponent,
     ContestNewComponent,
+    ContestPlayComponent,
+    StartupComponent,
+    FriendsComponent,
+    ShopComponent,
+    ContestPlayComponent,
     FilterBarPipeTime,
     FilterBarPipeJoinable,
     FilterBarPipeJoined,
