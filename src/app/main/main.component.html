@@ -1,0 +1,162 @@
+<div id="main" class="main">
+
+
+    <div class="topMenu small">
+
+        <img src="assets/images/man 2.png" style="position:absolute; left:5px; top:5px; max-height:50px; max-width:50px; ">
+
+        <div style="position:absolute; left:60px; top:0px; font-size:20px; height: 50px; width:150px; text-align:left; color:rgb(11, 66, 99); "> {{ "farhad"}} </div>
+
+        <div style="position:absolute; left:60px; top:30px; font-size:15px; height: 50px; width:150px; text-align:left; color:rgb(11, 66, 99);"> 5 new messages </div>
+
+        <div style="position:absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto; font-size:35px; height: 50px; width:250px; text-align:center; color:rgb(216, 216, 216); "> کی میدونه؟ </div>
+
+        <button mat-button [matMenuTriggerFor]="menu" style="position:absolute; right:5px; top:20px;  text-align:right; color:rgb(11, 66, 99);"> <mat-icon id="list-icon"> list </mat-icon></button>
+
+        <!--mat-icon style="position:absolute; right:5px; top:5px; font-size:45px; text-align:right; height: 45px; width: 45px; line-height: 45px;"> menu </mat-icon-->
+        <mat-menu #menu="matMenu" yPosition="below" >
+            <button mat-menu-item onclick="location.href='/main'"> بازی ها </button>
+            <button mat-menu-item onclick="location.href='/profile'"> صفحه کاربری </button>
+            <button mat-menu-item> تنظیمات </button>
+            <button mat-menu-item> دوستان </button>
+        </mat-menu>
+    </div>
+<!--div>
+  <p> {{aaaa}}</p>
+</div-->
+
+
+    <div class="topMenu big">
+        <img src="assets/images/man 2.png" style="position:absolute; left:5px; top:5px; max-height:50px; max-width:50px; ">
+
+        <div style="position:absolute; left:60px; top:0px; font-size:20px; height: 50px; width:150px; text-align:left; color:rgb(11, 66, 99); "> {{ "farhad"}} </div>
+
+        <div style="position:absolute; left:60px; top:30px; font-size:15px; height: 50px; width:150px; text-align:left; color:rgb(11, 66, 99);"> 5 new messages </div>
+
+        <div style="position:absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto; font-size:35px; height: 50px; width:250px; text-align:center; color:rgb(216, 216, 216); "> کی میدونه؟ </div>
+
+        <button mat-button onclick="location.href='/main'" style="position:absolute; right:5px; top:10px; font-size:25px; text-align:right; color:rgb(11, 66, 99);"> |بازی ها| </button>
+         <button mat-button onclick="location.href='/profile'" style="position:absolute; right:90px; top:10px; font-size:25px; text-align:right; color:rgb(11, 66, 99);"> |حساب کاربری| </button>
+         <button mat-button onclick="location.href=''" style="position:absolute; right:235px; top:10px; font-size:25px; text-align:right; color:rgb(11, 66, 99);"> |تنظیمات|</button>
+         <button mat-button onclick="location.href=''" style="position:absolute; right:325px; top:10px; font-size:25px; text-align:right; color:rgb(11, 66, 99);">| دوستان| </button>
+
+    </div>
+
+
+    <div id = "filterBarTime" style="margin-top: 20px; transform: scale(2);">
+      <label style="background-color:yellow;">time</label>
+      <button (click)="changeTimeFilter('today')">
+        today
+      </button>
+      <button (click)="changeTimeFilter('thisWeek')">
+        this week
+      </button>
+      <button (click)="changeTimeFilter('all')">
+        همه
+      </button>
+    </div>
+
+    <div id = "filterBarLevel" style="margin-top: 20px; transform: scale(2);">
+      <label style="background-color:yellow;">level</label>
+      <button style="background-color:chartreuse;" (click)="changeLevelFilter('5')">
+        5
+      </button>
+      <button style="background-color:chartreuse;" (click)="changeLevelFilter('7')">
+        7
+      </button>
+      <button style="background-color:chartreuse;" (click)="changeLevelFilter('all')">
+        همه
+      </button>
+    </div>
+
+    <div id = "filterBarJoinable" style="margin-top: 20px; transform: scale(2);">
+      <button style="background-color:blanchedalmond;" (click)="changeJoinableFilter()">
+        قابل ثبت نام
+      </button>
+    </div>
+
+    <div id = "filterBarJoined" style="margin-top: 20px; transform: scale(2);">
+      <button style="background-color:blue;" (click)="changeJoinedFilter()">
+        ثبت نام کرده
+      </button>
+    </div>
+
+
+
+
+    <mat-list class="contestsList big">
+
+        <mat-list-item class="listItem" *ngFor="let contest of (contests | time: selectedTime | level: selectedLevel | joinable: user : joinableFilter | joined: user : joinedFilter)">
+
+            <div id="{{contest._id}}" class="listItemDiv" (click)="openContest($event)">
+
+                <div style="float: left; " class="i">
+
+                    <mat-icon style="width: 50px; height: 50px; font-size: 50px; line-height: 50px;">
+                        person
+                    </mat-icon>
+
+                </div>
+
+                <div style="float: left; " class="inListItem">
+                    {{ contest.name }}
+                </div>
+
+                <div style="float: right;" class="inListItem">
+                    [{{ ((contest.start.time - nowDate)/1000).toFixed() > 0 ? 'زمان باقی مانده تا شروع بازی : ' + ((contest.start.time-nowDate)/1000).toFixed() + ' ثانیه' : 'started' }}]
+                </div>
+
+
+
+
+                <div style="float: right;" class="inListItem">
+                    [مدت بازی : {{((contest.end.time-contest.start.time)/1000).toFixed()}}]
+                </div>
+
+
+                <div style="float: right;" class="inListItem">
+                    [سطح : {{contest.roundsInfo[0].level}}]
+                </div>
+
+
+            </div>
+
+        </mat-list-item>
+
+    </mat-list>
+
+    <mat-list class="contestsList small">
+
+        <mat-list-item class="listItem" *ngFor="let contest of (contests | time: selectedTime | joinable: user : joinableFilter | joined: user : joinedFilter)">
+
+            <div class="listItemDiv">
+
+                <div style="float: left; " class="i">
+
+                    <mat-icon style="width: 50px; height: 50px; font-size: 50px; line-height: 50px;">
+                      person
+                    </mat-icon>
+
+                </div>
+
+                <div style="float: left; " class="inListItem">
+                    {{ contest.name }}
+                </div>
+
+                <div style="float: right;" class="inListItem">
+                    [{{ ((contest.start.time - nowDate)/1000).toFixed() > 0 ? 'زمان باقی مانده تا شروع بازی : ' + ((contest.start.time - nowDate)/1000).toFixed() + ' ثانیه' : ((contest.start.end - nowDate)/1000).toFixed() > 0 ? 'started' : 'ended' }}
+                </div>
+
+
+
+
+
+
+            </div>
+
+        </mat-list-item>
+
+    </mat-list>
+
+</div>
+

@@ -1,0 +1,133 @@
+<div class="container"  >
+      <div class="topMenu small">
+
+          <div style="position:absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto; font-size:35px; height: 50px; width:250px; text-align:center; color:rgb(216, 216, 216); "> کی میدونه؟ </div>
+
+          <button mat-button [matMenuTriggerFor]="menu" style="position:absolute; right:5px; top:20px;  text-align:right; color:rgb(11, 66, 99);"> <mat-icon id="list-icon"> list </mat-icon></button>
+
+          <!--mat-icon style="position:absolute; right:5px; top:5px; font-size:45px; text-align:right; height: 45px; width: 45px; line-height: 45px;"> menu </mat-icon-->
+          <mat-menu #menu="matMenu" yPosition="below" >
+              <button mat-menu-item onclick="location.href='/main'"> بازی ها </button>
+              <button mat-menu-item onclick="location.href='/profile'"> صفحه کاربری </button>
+              <button mat-menu-item> تنظیمات </button>
+              <button mat-menu-item> دوستان </button>
+          </mat-menu>
+      </div>
+      <div class="topMenu big">
+
+
+          <div style="position:absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto; font-size:35px; height: 50px; width:250px; text-align:center; color:rgb(216, 216, 216); "> کی میدونه؟ </div>
+
+          <button mat-button onclick="location.href='/main'" style="position:absolute; right:5px; top:10px; font-size:25px; text-align:right; color:rgb(11, 66, 99);"> |بازی ها| </button>
+           <button mat-button onclick="location.href='/profile'" style="position:absolute; right:90px; top:10px; font-size:25px; text-align:right; color:rgb(11, 66, 99);"> |حساب کاربری| </button>
+           <button mat-button onclick="location.href=''" style="position:absolute; right:235px; top:10px; font-size:25px; text-align:right; color:rgb(11, 66, 99);"> |تنظیمات|</button>
+           <button mat-button onclick="location.href=''" style="position:absolute; right:325px; top:10px; font-size:25px; text-align:right; color:rgb(11, 66, 99);">| دوستان| </button>
+
+      </div>
+      <div class="div" >
+        <div class="main" id="main">
+
+                 <div class="oval3" style="margin-top: 10px;"><div style="float:center; margin-top: 5px; " class="inListItem">
+                      {{ contests[0].name }}
+                  </div> </div>
+                  <br>
+
+                  <div class="rec3">
+                  <div class="rec3-child first-child">
+                    <img src="assets/images/answertime.png" style="width: 70px; height: 105px; margin-left: -8.75px; margin-top: -5px;" >
+                    <div style="float:center; margin-top: -8px; font-size: 12px" >
+                      sec
+                     </div>
+                  </div>
+                  <div class="rec3-child" >
+                      <img src="assets/images/questions.png" style="width: 70px; height: 105px; margin-left: -8.75px; margin-top: -5px;" >
+                      <div style="float:center; margin-top: -8px; font-size: 12px" >
+                          12
+                       </div>
+                  </div>
+                  <div class="rec3-child">
+                      <img src="assets/images/gift.png" style="width: 70px; height: 105px; margin-left: -8.75px; margin-top: -5px;" >
+                      <div style="float:center; margin-top: -8px; font-size: 12px" >
+                          6000
+                       </div>
+                  </div>
+                  <div class="rec3-child">
+                      <img src="assets/images/gamelevel.png" style="width: 70px; height: 105px; margin-left: -8.75px; margin-top: -5px;" >
+                      <div style="float:center; margin-top: -8px; font-size: 12px" >
+                          6
+                       </div>
+                  </div>
+                </div>
+
+
+
+                <div style="float: center; font-size: 100%; " >
+                  {{ "موضوعات" }}
+              </div>
+                  <mat-grid-list cols="8" rowHeight="50px"  style=" border: .5px solid white;  border-radius: 10%;  width: 300px; ">
+                   <mat-grid-tile
+
+                   *ngFor="let title of tagsTitle"
+                   colspan="2"
+                   rowspan="1">
+
+                  <div class="contest-photo">
+                  <img  id="{{title}}"   src="{{serverString}}/static/app/picture/tag/{{title}}.png" style=" position:absolute; cursor :pointer; width: 30px; height:30px; margin: 5px;margin-left: 20px; border-radius: 50%; z-index: 2; left:0vw;" >
+
+
+                </div>
+                   </mat-grid-tile>
+                  </mat-grid-list>
+                   <br>
+                  <div class="rec4">
+                    <div class="rec4-child first-child" >
+                        <img src="assets/images/levellimit.png" style="width: 70px; height: 105px; margin-left: -8.75px; margin-top: -5px;" >
+                        <div style="float:center; margin-top: -5px; font-size: 12px" >
+                           10
+                        </div>
+
+                    </div>
+                    <div class="rec4-child" >
+                        <img src="assets/images/gamestart.png" style="width: 70px; height: 105px; margin-left: -8.75px; margin-top: -5px;" >
+                        <div style="float:center; margin-top: -8px; font-size: 12px" >
+                            10 min
+                         </div>
+                    </div>
+                    <div class="rec4-child">
+                        <img src="assets/images/gamecost.png" style="width: 70px; height: 105px; margin-left: -8.75px; margin-top: -5px;" >
+                        <div style="float:center; margin-top: -8px; font-size: 12px" >
+                            2000
+                         </div>
+                      </div>
+                    </div>
+
+                    <div class="error-field" style="margin-top: -3%;">
+                      {{problem}}
+                    </div>
+
+
+                    <div class="submit-field " >
+                        <button mat-button *ngIf="joinCondition" [disabled]="!disabledJoinCondition" (click)="contesrJoin()">
+                          عضویت
+                        </button>
+                        <button mat-button *ngIf="enterCondition" [disabled]="!disabledEnterCondition" (click)="contestEnter()">
+                          ورود
+                        </button>
+                        <button mat-button *ngIf="endedContestCondition" [disabled]="true">
+                          عضویت
+                        </button>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+</div>

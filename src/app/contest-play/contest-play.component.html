@@ -1,0 +1,110 @@
+<div id="body">
+<div id="contest-playDiv" class="main">
+	<div class="main" *ngIf="contestEnded == false">
+
+		<div style="width: 100%; flex: 10%; text-align: center;">
+			<div style="font-family: gabroila; font-size: 20px" (click)="loadNextQuestion()">
+				<pre> Score : {{score}} - Question : {{currentRound}} / {{contest.questions.length}} </pre>
+			</div>
+		</div>
+
+		<div class="title" style="width: 98%; flex: 15%; text-align: center; font-family: koodak, gabroila; font-size: 20px; direction: rtl;">
+			{{ contest.questions[currentRound].title_fa }}
+		</div>
+
+		<div class="subtitle" style="width: 100%; flex: 35%; text-align: center; padding: 10px;">
+
+			<mat-grid-list cols="12" rowHeight="155px">
+
+				<mat-grid-tile *ngFor="let subtitle of contest.questions[currentRound].subtitle_fa" [colspan]="(12/contest.questions[currentRound].subtitle_fa.length)" rowspan="1">
+
+					<p *ngIf="contest.questions[currentRound].subtitle_type == 'text'" style="max-height: 95%; max-width: 95%; border-radius: 10px; font-size: 15px; ">{{subtitle}}</p>
+
+					<img *ngIf="contest.questions[currentRound].subtitle_type == 'image'" src="{{subtitle}}" style="max-height: 95%; max-width: 95%; border-radius: 10px; ">
+
+					<audio *ngIf="contest.questions[currentRound].subtitle_type == 'audio'" style="max-height: 95%; max-width: 95%; border-radius: 10px; " autoplay>
+						<source src="{{subtitle}}" type="audio/mpeg">
+					</audio>
+
+					<video *ngIf="contest.questions[currentRound].subtitle_type == 'video'" style="max-height: 95%; max-width: 95%; border-radius: 10px; " autoplay>
+						<source src="{{subtitle}}" type="video/mp4">
+					</video>
+
+				</mat-grid-tile>
+
+			</mat-grid-list>
+
+		</div>
+
+		<div class="help" style="width: 100%; flex: 15%; font-size: 20px; text-align: center; ">
+
+			<mat-grid-list cols="12" rowHeight="65px">
+
+				<mat-grid-tile *ngFor="let help of contest.questions[currentRound].helps" [colspan]="(12/contest.questions[currentRound].helps.length)" rowspan="1" >
+					<p style=" font-family: Simonetta;"> {{ help }} </p>
+				</mat-grid-tile>
+
+			</mat-grid-list>
+
+		</div>
+
+		<div class="answer submit-field" style="flex: 25%;">
+			<div style=" margin: auto; direction: rtl; font-family: koodak">
+				<div *ngIf="contest.questions[currentRound].type == 'multi_choice'">
+					<mat-grid-list cols="2" [rowHeight]="'100' + 'px'">
+
+						<mat-grid-tile *ngFor="let choice of contest.questions[currentRound].choices_fa" colspan="1" rowspan="1">
+
+							<button mat-button style="width: 100%; height: 100%; backgparseInt: #33aa33; border-radius: 10px; color: white; font-size: 15px; font-family: cursive;" (click)="sendAnswer(choice)">
+								<p *ngIf="contest.questions[currentRound].answer_type == 'text'" style="max-height: 95%; max-width: 95%; border-radius: 10px; font-size: 15px; ">{{choice}}</p>
+
+								<img *ngIf="contest.questions[currentRound].answer_type == 'image'" src="{{choice}}" style="max-height: 95%; max-width: 95%; border-radius: 10px; ">
+
+								<audio *ngIf="contest.questions[currentRound].answer_type == 'audio'" style="max-height: 95%; max-width: 95%; border-radius: 10px; ">
+									<source src="{{choice}}" type="audio/mpeg">
+								</audio>
+
+								<video *ngIf="contest.questions[currentRound].answer_type == 'video'" style="max-height: 95%; max-width: 95%; border-radius: 10px; " autoplay>
+									<source src="{{choice}}" type="video/mp4" autoplay>
+								</video>
+
+							</button>
+
+						</mat-grid-tile>
+
+					</mat-grid-list>
+				</div>
+
+				<div *ngIf="contest.questions[currentRound].type == 'writing'">
+					<input matInput #answerInput type="text" name="answer" placeholder="answer" (keydown.enter)="sendAnswer(answerInput.value)">
+				</div>
+
+				<div *ngIf="contest.questions[currentRound].type == 'true_false'">
+					<mat-grid-list cols="2" [rowHeight]="'100' + 'px'">
+
+						<mat-grid-tile *ngFor="let choice of ['علط', 'درست']" colspan="1" rowspan="1">
+							<button mat-button style="width: 100%; height: 100%; backgparseInt: #33aa33; border-radius: 10px; color: white; font-size: 15px; font-family: cursive;" (click)="sendAnswer(choice)">
+								<p style="max-height: 95%; max-width: 95%; border-radius: 10px; font-size: 15px; ">{{choice}}</p>
+							</button>
+						</mat-grid-tile>
+
+					</mat-grid-list>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="main" *ngIf="contestEnded == true" style="width: 100%; height: 100%; ">
+		<div style="font-size: 36px; text-align: center; width: 100%; padding-top: 30%;" [innerHtml]="score"></div>
+
+		<div style="font-size: 36px; text-align: center; width: 100%; padding-top: 0%;" [innerHtml]="'score'"></div>
+
+	</div>
+
+</div>
+
+
+</div>

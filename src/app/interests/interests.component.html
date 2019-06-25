@@ -1,0 +1,74 @@
+
+<div id = "interests" >
+	<div id = "interestsMainDiv" class="main">
+		<div id = "interestsTitleDiv">
+			<div id = "interestsTitle2Div">
+				<label id = "interestsTitleLable" style="color:rgb(11, 66, 99);">علاقه مندی خود را انتخاب کنید</label>
+			</div>
+		</div>
+
+
+			<mat-form-field class="example-chip-list" >
+	<mat-chip-list #chipList  >
+		<mat-chip
+			*ngFor="let tag of interests">
+			{{tag.persianTitle}}
+			<mat-icon id = "{{tag.title}}" matChipRemove (click)="removeInterest($event)">cancel </mat-icon>
+
+		</mat-chip>
+		<input
+			placeholder="جست و جو"
+			type="text"
+			value=""
+			#interestsInput
+			[formControl]="tagCtrl"
+			[matChipInputFor]="chipList"
+			[matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+			[matChipInputAddOnBlur]="true"
+			(keyup)="_filter($event)">
+	</mat-chip-list>
+
+	<!-- <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+		<mat-option *ngFor="let tag of filteredTags | async" [value]="tag">
+			{{tag.persianTitle}}
+		</mat-option>
+	</mat-autocomplete> -->
+</mat-form-field>
+
+
+
+
+
+		<mat-grid-list id = "interestsMat-grid-list" cols="3" rowHeight="130px">
+			<mat-grid-tile
+				*ngFor="let tag of filteredTags"
+				colspan="1"
+				rowspan="1">
+
+				<div id = "interestsMat-gridDiv">
+	<!--
+				<div style="float: left;">
+					<img src="{{tags.picture}}" style="width: 100px; height: 100px; margin-left: 0px; ">
+				</div>
+	-->
+
+					<img id="{{tag.title}}" src="{{server}}/static/app/picture/tag/{{tag.title}}.png" (click)="addInterest($event)" style="position:absolute; cursor :pointer; width: 8vw; height:8vw; margin: 4px; border-radius: 50%; z-index: 2; left:0vw;">
+					<img id="{{tag.title}}" *ngIf="clicked(tag.title)" src="assets/images/selectedicon2.png" (click)="removeInterest($event)" style="position:absolute; cursor :pointer; width: 8vw; height:8vw; margin: 4px; border-radius: 50%; z-index: 3; left: 0vw; top:0vw;">
+
+
+				</div>
+
+			</mat-grid-tile>
+		</mat-grid-list>
+
+		<div id = "interestsSubmitDiv">
+			<button mat-flat-button id = "interestsSubmitButton" (click)="editProfile()" style="background-color: rgb(17, 96, 145); color:rgb(11, 66, 99);" >بعدی</button>
+		</div>
+	</div>
+</div>
+
+
+
+
+<script type="text/javascript">
+</script>

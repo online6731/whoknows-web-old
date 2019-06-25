@@ -1,0 +1,32 @@
+<div id="body">
+	<div id = "login" class="main">
+		<form action="">
+        <input #server type="text" style="color:black;">
+        <button (click)="changeServer(server.value)" style="color:black;">server</button>
+
+			<div class="title">کی میدونه؟</div>
+
+			<mat-form-field>
+				<input matInput #username type="text" maxlength="30">
+				<mat-placeholder>نام کاربری</mat-placeholder>
+			</mat-form-field>
+
+			<mat-form-field>
+				<input matInput #password [type]="hide ? 'password' : 'text'" maxlength="30">
+				<mat-placeholder>رمز عبور</mat-placeholder>
+				<mat-icon matSuffix id="passIcon" (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+			</mat-form-field>
+
+			<div class="error-field">
+				{{ problem }}
+			</div>
+
+			<div class="submit-field">
+				<button mat-button (click)="login(username.value, password.value)">
+					ورود
+				</button>
+			</div>
+
+		</form>
+	</div>
+</div>
